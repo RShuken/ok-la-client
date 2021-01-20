@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import config from '../../config';
 import UserDeck from './UserDeck/UserDeck'
+import './UserDecksDashboard.css';
 
 //Question: Should the individual deck element that is being mapped over be converted into it's own component so that when clicking edit or delete it does not effect all items on the page?
 
@@ -13,9 +14,9 @@ class UserDecksDashboard extends Component {
     super(props);
     this.state = {
       languages: [
-        { language: 'french', numCards: 42, icon: 'french flag' },
-        { language: 'french2', numCards: 45, icon: 'french flag2' },
-        { language: 'french3', numCards: 45, icon: 'french flag3' },
+        { language: 'french', numCards: 42, icon: 'french flag', id: 1 },
+        { language: 'french2', numCards: 45, icon: 'french flag2', id: 2 },
+        { language: 'french3', numCards: 45, icon: 'french flag3', id: 3 },
       ],
     };
   }
@@ -26,6 +27,7 @@ class UserDecksDashboard extends Component {
     // needs language name, and number of cards
   }
 
+  // for this fetch request I need to edit the backend to return the ID of the language. 
   fetchUserDecks = () => {
     const { API_ENDPOINT } = config;
     fetch(`${API_ENDPOINT}/language`, (req, res) => {
@@ -42,32 +44,16 @@ class UserDecksDashboard extends Component {
     });
   };
 
-  renderCommunityDeck(deck) {
-    return (
-      <div>
-        {/* this icon button will take the user to the edit deck page */}
-        <button>edit icon</button>
-        <div>
-          <img src={deck.icon} alt={deck.icon} />
-          <h3>
-            <a href='/language-dashboard'>{deck.language}</a>
-          </h3>
-          <p>{deck.numCards}</p>
-        </div>
-        {/* this icon button will delete the user deck and refresh the page */}
-        <button>delete icon</button>
-      </div>
-    );
-  }
-
   render() {
     return (
-      <div>
+      <div className="userDecksWrapper">
         {/* this will take the user to a page to create a new deck */}
-        <button>New Deck</button>
-        <h1>My Decks</h1>
+        <div className="dashHeader">
+        <button><a href="/create-deck">New Deck</a></button>
+        <h1><a href="/">My Decks</a></h1>
         {/* this will take you to community decks */}
-        <button>Add Community Decks</button>
+          <button><a href='/community-dashboard'>Add Community Decks</a></button>
+        </div>
         {/* This will be the container for all user decks */}
         <div className='decks-container'>
           {this.state.languages.map((deck) => <UserDeck language = {deck}/>)}

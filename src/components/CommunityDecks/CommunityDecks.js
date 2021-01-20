@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import config from '../../config';
+import './CommunityDecks.css';
 
 class CommunityDecks extends Component {
   constructor(props) {
@@ -23,29 +24,32 @@ class CommunityDecks extends Component {
       // fetch info here
       // this.setState({ languages: data})
     });
-    };
-    
-    renderCommunityDeck(deck) {
-        return (
-            <div>
-                <img src={deck.icon} alt={deck.icon} />
-                <h3>{deck.language}</h3>
-                <p>{deck.numCards}</p>
-            </div>
-        )
-    }
+  };
+
+  renderCommunityDeck(deck) {
+    return (
+      <div className='languageDeckBox'>
+        <img src={deck.icon} alt={deck.icon} />
+        <button>+Add {deck.language}</button>
+        <p>{deck.numCards} Cards in deck</p>
+      </div>
+    );
+  }
 
   render() {
-      return (
-          <div>
-              <h1>Add Community Decks</h1>
-              {/* this will take you to my decks */}
-              <button>My Decks</button>
-              {/* This will be the container for all community decks */}
-               <div className="decks-container">{this.state.languages.map(deck => this.renderCommunityDeck(deck))}</div>
-             
-          </div>
-      );
+    return (
+      <div className='userDecksWrapper'>
+        <h1>Add Community Decks</h1>
+        {/* this will take you to my decks */}
+        <button>
+          <a href='/'>My Decks</a>
+        </button>
+        {/* This will be the container for all community decks */}
+        <div className='deck-box'>
+          {this.state.languages.map((deck) => this.renderCommunityDeck(deck))}
+        </div>
+      </div>
+    );
   }
 }
 

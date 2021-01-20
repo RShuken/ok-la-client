@@ -1,0 +1,39 @@
+.userDecksWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  border-radius: 5px;
+  margin: 10px;
+  padding: 1px 5px;
+  min-width: auto;
+}
+
+.dashHeader {
+  display: flex;
+  flex-direction: row;
+  margin: 10px;
+}
+
+.dashHeader h1 {
+  margin: 20px;
+}
+
+.dashHeader a {
+  text-decoration: none;
+}
+
+/* this header is slightly off center, how to correct? */
+
+.dashHeader button {
+  margin: 20px;
+}
+
+.decks-container {
+  display: flex;
+  flex-direction: row;
+  border: 1px solid black;
+  margin: 10px;
+  padding: 10px;
+}

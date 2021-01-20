@@ -1,0 +1,64 @@
+.userDecksWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  border-radius: 5px;
+  margin: 10px;
+  padding: 1px 5px;
+  min-width: auto;
+}
+
+.userDecksWrapper a {
+  text-decoration: none;
+}
+
+.dashHeader {
+  display: flex;
+  flex-direction: row;
+  margin: 10px;
+}
+
+.dashHeader h1 {
+  margin: 20px;
+}
+
+.dashHeader a {
+  text-decoration: none;
+}
+
+/* this header is slightly off center, how to correct? */
+
+.dashHeader button {
+  margin: 20px;
+}
+
+.deck-box {
+  display: flex;
+  flex-direction: row;
+  border: 1px solid black;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+/* how to make this a grid where the max column are 3 and rows are unlimited? */
+
+.languageDeckBox {
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+  margin: 5px;
+  border: 1px solid black;
+  border-radius: 5px;
+  align-items: center;
+}
+
+.languageDeckBox button{
+    margin-top: 5px;
+}
+
+.languageDeckBox p{
+    margin: 5px;
+}

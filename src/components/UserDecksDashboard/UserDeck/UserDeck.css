@@ -1,0 +1,17 @@
+/* How do I make this a grid of 3 elements max and unlimited rows? */
+
+.userDeckWrapper {
+    display: flex;
+    flex-direction: row;
+    padding: 5px;
+    margin: 5px;
+    border: 1px solid black;
+}
+
+.languageBox {
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    align-items: center;
+
+}
