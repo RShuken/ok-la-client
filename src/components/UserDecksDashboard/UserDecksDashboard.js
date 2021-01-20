@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import config from '../../config';
+import UserDeck from './UserDeck/UserDeck'
 
 //Question: Should the individual deck element that is being mapped over be converted into it's own component so that when clicking edit or delete it does not effect all items on the page?
 
@@ -7,7 +8,7 @@ import config from '../../config';
 
 // I need to make a /language-decks/:id fetch path that 
 
-class UserDecks extends Component {
+class UserDecksDashboard extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -69,11 +70,11 @@ class UserDecks extends Component {
         <button>Add Community Decks</button>
         {/* This will be the container for all user decks */}
         <div className='decks-container'>
-          {this.state.languages.map((deck) => this.renderCommunityDeck(deck))}
+          {this.state.languages.map((deck) => <UserDeck language = {deck}/>)}
         </div>
       </div>
     );
   }
 }
 
-export default UserDecks;
+export default UserDecksDashboard;
