@@ -1,0 +1,31 @@
+.wordCard {
+    display: flex; 
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin: 10px; 
+    padding: 1px 5px; 
+    min-width: 30%; 
+}
+
+.answerCountBox {
+    display:flex;
+    flex-direction: column;
+}
+
+.wordCardsContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.answerCountWrapper {
+    padding: 10px;
+}
+
+.wordCardsContainer h1 {
+    font-size: 45px;
+}

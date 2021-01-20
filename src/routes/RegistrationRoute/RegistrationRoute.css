@@ -1,0 +1,13 @@
+.register-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    left: 50%;
+    right: 50%;
+}
+
+
+.register-container h2, h3{
+   text-align: center;
+}
