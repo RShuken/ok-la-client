@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 //import config from '../../config';
 //import TokenService from '../../services/token-service';
-//import './LanguageCard.css';
+import './LanguageCard.css';
 
 class LanguageCard extends Component {
   constructor(props) {
@@ -48,9 +48,9 @@ class LanguageCard extends Component {
     });
   };
 
-    handleEditBtn = () => {
-      this.setState({isToggled: !this.state.isToggled});
-  }
+  handleEditBtn = () => {
+    this.setState({ isToggled: !this.state.isToggled });
+  };
 
   renderEditCard = () => {
     return (
@@ -80,7 +80,12 @@ class LanguageCard extends Component {
   renderCard = (word) => {
     return (
       <div className='wordCard'>
-        <h2>{word.original}</h2>
+        <div className='translationWrapper'>
+          <p>Original: </p>
+          <h2>{word.original}</h2>
+          <p>Translation: </p>
+          <h2>{word.translation}</h2>
+        </div>
         <div className='answerCountWrapper'>
           <button onClick={this.handleEditBtn}>Edit Card</button>
           <button>Delete Card</button>

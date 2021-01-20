@@ -1,1 +1,10 @@
+.translationWrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
 
+.translationWrapper p, h2{
+margin: 0;
+padding: 3px;
+}

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import config from '../../config';
+import config from '../../../config';
 
 //Question: After a user clicks a language how do I best pass through the language id to the new page so that I know to do the right fetch request on load. Is it through passing a dynamic url like /language-deck/:id  where the :id is the language id, or is it by passing it through props so that the user does not see the change in the link? What is the best way to do this? And on the server do I make a new get request path for each url path language ID that is dynamic or do I pass the language id though as props and when the new page loads it has a component did mount that takes in the passed in prop to get the correct language data.
 
