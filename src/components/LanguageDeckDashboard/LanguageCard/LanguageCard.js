@@ -56,7 +56,7 @@ class LanguageCard extends Component {
     return (
       <form className='editCard' onSubmit={this.handlePatchCard}>
         <h2>Edit Card</h2>
-        <p>Original</p>
+        <p>Original Word</p>
         <input
           type='text'
           id='original'

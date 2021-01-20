@@ -7,8 +7,9 @@ class CommunityDecks extends Component {
     super(props);
     this.state = {
       languages: [
-        { language: 'french', numCards: 42, icon: 'french flag' },
-        { language: 'french2', numCards: 45, icon: 'french flag2' },
+        { language: 'french', numCards: 42, icon: 'french flag', id:1 },
+        { language: 'french2', numCards: 45, icon: 'french flag2', id:2 },
+        { language: 'french3', numCards: 45, icon: 'french flag2', id:3 }
       ],
     };
   }

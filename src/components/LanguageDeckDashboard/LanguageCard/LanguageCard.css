@@ -8,3 +8,15 @@
 margin: 0;
 padding: 3px;
 }
+
+.editCard {
+    margin: 10px;
+    padding: 10px; 
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+}
+
+.editCard button{
+    margin: 10px 0px;
+}

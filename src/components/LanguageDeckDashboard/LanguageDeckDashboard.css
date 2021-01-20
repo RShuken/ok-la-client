@@ -29,3 +29,23 @@
 .wordCardsContainer h1 {
     font-size: 45px;
 }
+
+.btnContainer button{
+    padding: 5px;
+    margin: 0px 30px;
+}
+
+.btnContainer a{
+    text-decoration: none;
+}
+
+.editCard {
+    margin: 10px;
+    padding: 10px; 
+    display: flex;
+    flex-direction: column;
+}
+
+.editCard button{
+    margin: 10px 0px;
+}
