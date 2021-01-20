@@ -1,4 +1,3 @@
-import { faMarsDouble } from '@fortawesome/free-solid-svg-icons';
 import React, { Component } from 'react';
 import config from '../../config';
 

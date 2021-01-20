@@ -4,7 +4,6 @@ import TokenService from '../../services/token-service';
 import './LanguageDeckDashboard.css';
 import LanguageCard from './LanguageCard/LanguageCard'
 
-//Question: Edit card and Delete card will need to either forward to a new path, or load a component on this page. What is the best way to do this? Delete card can be a fetch request that deletes the id of that card. This means that I likely need this to be it's own component as I need each card to act independent of each other. 
 
 class LanguageDeckDashboard extends Component {
   constructor(props) {
