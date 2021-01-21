@@ -48,7 +48,7 @@ class CommunityDecksDashboard extends Component {
         </button>
         {/* This will be the container for all community decks */}
         <div className='deck-box'>
-          {this.state.languages.map((deck) => <CommunityDeck language={deck}/>)}
+          {this.state.languages.map((deck, y) => <CommunityDeck language={deck} key={y}/>)}
         </div>
       </div>
     );

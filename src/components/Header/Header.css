@@ -27,7 +27,7 @@ margin-right: 15px;
 .userInfo {
     display: flex;
     flex-direction: column;
-    width: 20%;
+    width: 30%;
 }
 
 .userInfo h2 {

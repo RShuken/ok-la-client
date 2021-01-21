@@ -56,7 +56,7 @@ class UserDecksDashboard extends Component {
         </div>
         {/* This will be the container for all user decks */}
         <div className='decks-container'>
-          {this.state.languages.map((deck) => <UserDeck language = {deck}/>)}
+          {this.state.languages.map((deck, y) => <UserDeck language={deck} key={y}/>)}
         </div>
       </div>
     );

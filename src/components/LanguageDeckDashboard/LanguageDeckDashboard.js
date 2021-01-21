@@ -63,17 +63,17 @@ class LanguageDeckDashboard extends Component {
     // when done set isToggled back to false and clear the state
     const currentWords = [...this.state.words];
     const something = [
-      {
+      
+      ...currentWords, {
         original: this.state.original,
         translation: this.state.translation,
-        correct_count: 1,
+        correct_count: 0,
         id: 99,
         incorrect_count: 0,
         language_id: 2,
         memory_value: 1,
         next: 12,
       },
-      ...currentWords,
     ];
     console.log('this is something', something);
     this.setState({
