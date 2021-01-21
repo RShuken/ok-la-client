@@ -49,7 +49,7 @@ class UserDecksDashboard extends Component {
       <div className="userDecksWrapper">
         {/* this will take the user to a page to create a new deck */}
         <div className="dashHeader">
-        <button><a href="/create-deck">New Deck</a></button>
+        <button><a href="/make-new-deck">Make New Deck</a></button>
         <h1><a href="/">My Decks</a></h1>
         {/* this will take you to community decks */}
           <button><a href='/community-dashboard'>Add Community Decks</a></button>

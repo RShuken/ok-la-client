@@ -6,7 +6,6 @@ import LanguageCard from './LanguageCard/LanguageCard';
 
 //Question: when I try to change the handlePatchCard to handleAddCard I get an error, whats up?
 
-
 class LanguageDeckDashboard extends Component {
   constructor(props) {
     super(props);
@@ -22,6 +21,11 @@ class LanguageDeckDashboard extends Component {
   componentDidMount = () => {
     this.fetchLanguage();
   };
+
+  componentDidUpdate = () => {
+  
+  }
+
 
   fetchLanguage = () => {
     const { API_ENDPOINT } = config;
@@ -57,22 +61,37 @@ class LanguageDeckDashboard extends Component {
     // this will do a PATCH request to the server to change the card. this should also take the word.id and pass it though in the body so the sever knows what word id to update.
     // fetch(`${API_ENDPOINT}/language`, )
     // when done set isToggled back to false and clear the state
-    this.setState({
-      word: {
-        ...this.state.word,
+    const currentWords = [...this.state.words];
+    const something = [
+      {
         original: this.state.original,
         translation: this.state.translation,
+        correct_count: 1,
+        id: 99,
+        incorrect_count: 0,
+        language_id: 2,
+        memory_value: 1,
+        next: 12,
       },
+      ...currentWords,
+    ];
+    console.log('this is something', something);
+    this.setState({
+      words: something,
       original: '',
       translation: '',
       isToggled: !this.state.isToggled,
     });
-    this.fetchLanguage();
+    console.log(
+      'this is this.state.words at the end of the function',
+      this.state.words
+    );
+    //this.fetchLanguage();
   };
 
   renderAddCard = () => {
     return (
-      <form className='editCard' onSubmit={this.handlePatchCard}>
+      <form className='editCard' onSubmit={this.handlePatchCard.bind(this)}>
         <h2>Add Card</h2>
         <p>Original Word</p>
         <input

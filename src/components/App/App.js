@@ -8,8 +8,9 @@ import LoginRoute from '../../routes/LoginRoute/LoginRoute';
 import LanguageDeckDashboard from '../LanguageDeckDashboard/LanguageDeckDashboard';
 import LearningRoute from '../../routes/LearningRoute/LearningRoute';
 import NotFoundRoute from '../../routes/NotFoundRoute/NotFoundRoute';
-import CommunityDecks from '../CommunityDecks/CommunityDecks';
+import CommunityDecksDashboard from '../CommunityDecksDashboard/CommunityDecksDashboard';
 import UserDecksDashboard from '../UserDecksDashboard/UserDecksDashboard';
+import MakeNewDeck from '../MakeNewDeck/MakeNewDeck';
 import './App.css';
 
 export default class App extends Component {
@@ -33,7 +34,12 @@ export default class App extends Component {
             <PrivateRoute
               exact
               path={'/community-dashboard'}
-              component={CommunityDecks}
+              component={CommunityDecksDashboard}
+            />
+            <PrivateRoute
+              exact
+              path={'/make-new-deck'}
+              component={MakeNewDeck}
             />
             <PrivateRoute
               exact

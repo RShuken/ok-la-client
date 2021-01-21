@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import config from '../../config';
-import './CommunityDecks.css';
+import './CommunityDecksDashboard.css';
+import CommunityDeck from './CommunityDeck/CommunityDeck'
 
-class CommunityDecks extends Component {
+class CommunityDecksDashboard extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -15,7 +16,7 @@ class CommunityDecks extends Component {
   }
 
   componentDidMount() {
-    // fetch request to get all of the community CommunityDecks
+    // fetch request to get all of the community CommunityDecks ## it would be good to add a backend function that returns true or false if the user already has the deck in their deck library. that way the users can get feedback on if they already added a deck and it gives a way to only show decks they don't already own. 
     // needs language name, and number of cards
   }
 
@@ -47,11 +48,11 @@ class CommunityDecks extends Component {
         </button>
         {/* This will be the container for all community decks */}
         <div className='deck-box'>
-          {this.state.languages.map((deck) => this.renderCommunityDeck(deck))}
+          {this.state.languages.map((deck) => <CommunityDeck language={deck}/>)}
         </div>
       </div>
     );
   }
 }
 
-export default CommunityDecks;
+export default CommunityDecksDashboard;
