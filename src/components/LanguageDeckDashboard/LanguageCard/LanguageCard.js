@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-//import config from '../../config';
-//import TokenService from '../../services/token-service';
+import config from '../../../config';
+import TokenService from '../../../services/token-service';
 import './LanguageCard.css';
 
 class LanguageCard extends Component {
@@ -14,11 +14,31 @@ class LanguageCard extends Component {
     };
   }
 
-  // make a function that returns a form and another function that takes the input on change and updates it then another function that is a PATCH request to update the card. don't forget to have it in state.
-
-  // write the edit card function
-
   // write the delete card function
+  handleDeleteCard = () => {
+    console.log('the delete card button has been clicked, and this is the card id to target', this.state.word.id)
+       const { API_ENDPOINT } = config;
+       const fetchHeaders = {
+         method: 'DELETE',
+         headers: {
+           authorization: `Bearer ${TokenService.getAuthToken()}`,
+         },
+       };
+
+       fetch(`${API_ENDPOINT}/language`, fetchHeaders)
+         .then((res) => res.json())
+         .then((data) => {
+           console.log('this is the response from the delete action',data);
+         })
+         .catch((err) => console.log(err.message));
+  }
+
+ // this is required because when adding a new card to a language deck this component needs to check if the word passed through is still the same state, if not it needs to update and re-render the list. 
+  componentDidUpdate(prevProps, newProps) {
+    if (prevProps.word.original !== this.props.word.original) {
+      this.setState({ word: this.props.word });
+    }
+  }
 
   handleInput = (e) => {
     const inputs = { [e.target.name]: e.target.value };
@@ -88,7 +108,7 @@ class LanguageCard extends Component {
         </div>
         <div className='answerCountWrapper'>
           <button onClick={this.handleEditBtn}>Edit Card</button>
-          <button>Delete Card</button>
+          <button onClick={this.handleDeleteCard}>Delete Card</button>
         </div>
       </div>
     );

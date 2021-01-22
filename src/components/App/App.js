@@ -43,7 +43,7 @@ export default class App extends Component {
             />
             <PrivateRoute
               exact
-              path={'/language-dashboard'}
+              path={'/language-dashboard/:id'}
               component={LanguageDeckDashboard}
             />
             <PublicOnlyRoute

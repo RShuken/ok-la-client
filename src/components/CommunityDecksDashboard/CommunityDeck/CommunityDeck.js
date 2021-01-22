@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import config from '../../../config';
 import './CommunityDeck.css';
+import TokenService from '../../../services/token-service';
+
 
 class CommunityDecks extends Component {
   constructor(props) {
@@ -10,24 +12,29 @@ class CommunityDecks extends Component {
     };
   }
 
-    // need a fetch request to activate when Add deck button is pressed to add the deck ID to the user ID, it will be a PUT request to update the user's list of language id's 
-  fetchDecks = () => {
-    const { API_ENDPOINT } = config;
-    fetch(`${API_ENDPOINT}/language`, (req, res) => {
-// no return
-    });
-  };
 
     handleClickAddDecks = () => {
-        console.log('the add deck function has been clicked', this.state.language)
+      console.log('the add deck function has been clicked and this the language ID to be added', this.state.language.id)
+      
+      const { API_ENDPOINT } = config;
+      const fetchHeaders = {
+        method: 'POST',
+        headers: {
+          authorization: `Bearer ${TokenService.getAuthToken()}`,
+        },
+      };
+
+      fetch(`${API_ENDPOINT}/user/deck/${this.state.language.id}`, fetchHeaders)
+        .then((res) => res.json())
+        .catch((err) => console.log(err.message));
     }
     
   renderCommunityDeck() {
     return (
       <div className='languageDeckBox'>
         <img src={this.state.language.icon} alt={this.state.language.icon} />
-        <button onClick={this.handleClickAddDecks}>+Add {this.state.language.language}</button>
-        <p>{this.state.language.numCards} Cards in deck</p>
+        <button onClick={this.handleClickAddDecks}>+Add {this.state.language.name}</button>
+        <p>Total Score: {this.state.language.total_score}</p>
       </div>
     );
   }

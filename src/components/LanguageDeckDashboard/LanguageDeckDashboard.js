@@ -4,7 +4,7 @@ import TokenService from '../../services/token-service';
 import './LanguageDeckDashboard.css';
 import LanguageCard from './LanguageCard/LanguageCard';
 
-//Question: when I try to change the handlePatchCard to handleAddCard I get an error, whats up?
+//This needs a fetch request to work.
 
 class LanguageDeckDashboard extends Component {
   constructor(props) {
@@ -14,18 +14,19 @@ class LanguageDeckDashboard extends Component {
       translation: '',
       isToggled: false,
       words: [],
-      language: {},
+      language: {}
     };
   }
 
   componentDidMount = () => {
+    const { location, history } = this.props;
+    // const destination = (location.state || {}).from || '/';
+    // history.push(destination);
+    console.log('this is the location and the history', location, history, this.props)
     this.fetchLanguage();
   };
 
-  componentDidUpdate = () => {
-  
-  }
-
+  componentDidUpdate = () => {};
 
   fetchLanguage = () => {
     const { API_ENDPOINT } = config;
@@ -36,10 +37,11 @@ class LanguageDeckDashboard extends Component {
       },
     };
 
-    fetch(`${API_ENDPOINT}/language`, fetchHeaders)
+    fetch(`${API_ENDPOINT}/language/${this.props.match.params.id}`, fetchHeaders)
       .then((res) => res.json())
       .then((data) => {
-        this.setState({ words: data.words, language: data.language });
+        console.log('this is the server response data', data)
+        this.setState({ words: data.words, language: data.language  });
       })
       .catch((err) => console.log(err.message));
   };
@@ -49,49 +51,30 @@ class LanguageDeckDashboard extends Component {
     this.setState(inputs);
   };
 
-  // when I try to change this to handleAddCard I get an error, whats up?
-  handlePatchCard = (e) => {
+  handleAddingCard = (e) => {
     e.preventDefault();
-    console.log(
-      'this is the original',
-      this.state.original,
-      'this is the translation',
-      this.state.translation
-    );
-    // this will do a PATCH request to the server to change the card. this should also take the word.id and pass it though in the body so the sever knows what word id to update.
-    // fetch(`${API_ENDPOINT}/language`, )
-    // when done set isToggled back to false and clear the state
-    const currentWords = [...this.state.words];
-    const something = [
-      
-      ...currentWords, {
-        original: this.state.original,
-        translation: this.state.translation,
-        correct_count: 0,
-        id: 99,
-        incorrect_count: 0,
-        language_id: 2,
-        memory_value: 1,
-        next: 12,
-      },
-    ];
-    console.log('this is something', something);
     this.setState({
-      words: something,
-      original: '',
-      translation: '',
+      words: [
+        {
+          original: this.state.original,
+          translation: this.state.translation,
+          correct_count: 0,
+          id: 99,
+          incorrect_count: 0,
+          language_id: 2,
+          memory_value: 1,
+          next: 12,
+        },
+        ...this.state.words,
+      ],
       isToggled: !this.state.isToggled,
     });
-    console.log(
-      'this is this.state.words at the end of the function',
-      this.state.words
-    );
-    //this.fetchLanguage();
+    // this should be a POST request that adds a new card to the id of the language at the end of the linked list.
   };
 
   renderAddCard = () => {
     return (
-      <form className='editCard' onSubmit={this.handlePatchCard.bind(this)}>
+      <form className='editCard' onSubmit={this.handleAddingCard.bind(this)}>
         <h2>Add Card</h2>
         <p>Original Word</p>
         <input
@@ -125,6 +108,8 @@ class LanguageDeckDashboard extends Component {
   };
 
   render() {
+    const { words } = this.state;
+    console.log('this is the state from langugaedeck Dashboard', this.state);
     return (
       <section className='wordCardsContainer'>
         <h1>{this.state.language.name}</h1>
@@ -140,7 +125,7 @@ class LanguageDeckDashboard extends Component {
           <button onClick={this.handleDeleteDeck}>Delete Deck</button>
         </div>
         {this.state.isToggled ? this.renderAddCard() : ''}
-        {this.state.words.map((word, y) => (
+        {words.map((word, y) => (
           <LanguageCard word={word} key={y} />
         ))}
       </section>
