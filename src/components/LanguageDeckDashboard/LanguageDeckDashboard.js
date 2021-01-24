@@ -22,7 +22,6 @@ class LanguageDeckDashboard extends Component {
     const { location, history } = this.props;
     // const destination = (location.state || {}).from || '/';
     // history.push(destination);
-    console.log('this is the location and the history', location, history, this.props)
     this.fetchLanguage();
   };
 
@@ -40,7 +39,6 @@ class LanguageDeckDashboard extends Component {
     fetch(`${API_ENDPOINT}/language/${this.props.match.params.id}`, fetchHeaders)
       .then((res) => res.json())
       .then((data) => {
-        console.log('this is the server response data', data)
         this.setState({ words: data.words, language: data.language  });
       })
       .catch((err) => console.log(err.message));
@@ -53,23 +51,31 @@ class LanguageDeckDashboard extends Component {
 
   handleAddingCard = (e) => {
     e.preventDefault();
-    this.setState({
-      words: [
-        {
-          original: this.state.original,
-          translation: this.state.translation,
-          correct_count: 0,
-          id: 99,
-          incorrect_count: 0,
-          language_id: 2,
-          memory_value: 1,
-          next: 12,
-        },
-        ...this.state.words,
-      ],
-      isToggled: !this.state.isToggled,
-    });
-    // this should be a POST request that adds a new card to the id of the language at the end of the linked list.
+    const { API_ENDPOINT } = config;
+    const fetchHeaders = {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json',
+        authorization: `Bearer ${TokenService.getAuthToken()}`,
+      },
+      body: JSON.stringify({
+        original: this.state.original,
+        translation: this.state.translation,
+      }),
+    };
+
+    fetch(`${API_ENDPOINT}/language/${this.state.language.id}/word/`, fetchHeaders)
+      .then((res) => res.json())
+      .then((data) => {
+        this.setState({
+          words: [
+            data.newWord,
+            ...this.state.words,
+          ],
+          isToggled: !this.state.isToggled,
+        });
+      })
+      .catch((err) => console.log(err.message));
   };
 
   renderAddCard = () => {
@@ -109,7 +115,6 @@ class LanguageDeckDashboard extends Component {
 
   render() {
     const { words } = this.state;
-    console.log('this is the state from langugaedeck Dashboard', this.state);
     return (
       <section className='wordCardsContainer'>
         <h1>{this.state.language.name}</h1>

@@ -14,26 +14,34 @@ class LanguageCard extends Component {
     };
   }
 
+  // correct_count: 0;
+  // id: 9;
+  // incorrect_count: 0;
+  // language_id: 3;
+  // memory_value: 1;
+  // next: 10;
+  // original: 'amour';
+  // translation: 'love';
+
   // write the delete card function
   handleDeleteCard = () => {
-    console.log('the delete card button has been clicked, and this is the card id to target', this.state.word.id)
-       const { API_ENDPOINT } = config;
-       const fetchHeaders = {
-         method: 'DELETE',
-         headers: {
-           authorization: `Bearer ${TokenService.getAuthToken()}`,
-         },
-       };
+    const { API_ENDPOINT } = config;
+    const fetchHeaders = {
+      method: 'DELETE',
+      headers: {
+        authorization: `Bearer ${TokenService.getAuthToken()}`,
+      },
+    };
 
-       fetch(`${API_ENDPOINT}/language`, fetchHeaders)
-         .then((res) => res.json())
-         .then((data) => {
-           console.log('this is the response from the delete action',data);
-         })
-         .catch((err) => console.log(err.message));
-  }
+    fetch(`${API_ENDPOINT}/language/word/${this.state.word.id}`, fetchHeaders)
+      .then((res) => res.json())
+      .then((data) => {
+        this.setState({ word: null });
+      })
+      .catch((err) => console.log(err.message));
+  };
 
- // this is required because when adding a new card to a language deck this component needs to check if the word passed through is still the same state, if not it needs to update and re-render the list. 
+  // this is required because when adding a new card to a language deck this component needs to check if the word passed through is still the same state, if not it needs to update and re-render the list.
   componentDidUpdate(prevProps, newProps) {
     if (prevProps.word.original !== this.props.word.original) {
       this.setState({ word: this.props.word });
@@ -47,25 +55,35 @@ class LanguageCard extends Component {
 
   handlePatchCard = (e) => {
     e.preventDefault();
-    console.log(
-      'this is the original',
-      this.state.original,
-      'this is the translation',
-      this.state.translation
-    );
-    // this will do a PATCH request to the server to change the card. this should also take the word.id and pass it though in the body so the sever knows what word id to update.
-    // fetch(`${API_ENDPOINT}/language`, )
-    // when done set isToggled back to false and clear the state
-    this.setState({
-      word: {
-        ...this.state.word,
+    const { API_ENDPOINT } = config;
+    const fetchHeaders = {
+      method: 'PUT',
+      headers: {
+        'content-type': 'application/json',
+        authorization: `Bearer ${TokenService.getAuthToken()}`,
+      },
+      body: JSON.stringify({
         original: this.state.original,
         translation: this.state.translation,
-      },
-      original: '',
-      translation: '',
-      isToggled: !this.state.isToggled,
-    });
+      }),
+    };
+
+    fetch(`${API_ENDPOINT}/language/word/${this.state.word.id}`, fetchHeaders)
+      .then((res) => res.json())
+      .then((data) => {
+        this.setState({
+          word: {
+            ...this.state.word,
+            original: this.state.original,
+            translation: this.state.translation,
+          },
+          original: '',
+          translation: '',
+          isToggled: !this.state.isToggled,
+        });
+      })
+      .catch((err) => console.log(err.message));
+    
   };
 
   handleEditBtn = () => {
@@ -117,7 +135,7 @@ class LanguageCard extends Component {
   render() {
     return (
       <>
-        {this.renderCard(this.state.word)}
+        {this.state.word !== null ? this.renderCard(this.state.word) : <></>}
         {this.state.isToggled ? this.renderEditCard() : ''}
       </>
     );
