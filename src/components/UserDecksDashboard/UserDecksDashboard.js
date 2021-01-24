@@ -44,13 +44,6 @@ class UserDecksDashboard extends Component {
       .catch((err) => console.log(err.message));
   };
 
-  handleDeleteDecks = () => {
-    const { API_ENDPOINT } = config;
-    fetch(`${API_ENDPOINT}/language`, (req, res) => {
-      // delete method for the language id.
-      // at the end call this.fetchDecks to refresh the state
-    });
-  };
 
   render() {
     return (

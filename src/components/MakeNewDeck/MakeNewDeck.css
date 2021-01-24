@@ -18,3 +18,7 @@
 .addNewLanguageForm button {
   margin: 10px 0;
 }
+
+.addNewLanguageForm a {
+  text-decoration: none;
+}

@@ -19,15 +19,16 @@ class CreateNewDeck extends Component {
     const fetchHeaders = {
       method: 'POST',
       headers: {
+        'content-type': 'application/json',
         authorization: `Bearer ${TokenService.getAuthToken()}`,
       },
-      body: JSON.stringify(this.state.title),
+      body: JSON.stringify({ name: this.state.title }),
     };
 
     fetch(`${API_ENDPOINT}/language`, fetchHeaders)
       .then((res) => res.json())
       .then((data) => {
-        //redirect here to the new deck id
+        //redirect to dashboard home
       })
       .catch((err) => console.log(err.message));
   };
@@ -43,7 +44,7 @@ class CreateNewDeck extends Component {
       <form onSubmit={this.addNewLanguage} className="addNewLanguageForm">
         <h1>Title of Deck</h1>
         <input name='title' id='title' onChange={this.handleInput} />
-        <button type='submit'>Submit</button>
+        <button type='submit'><a href='/'>Submit</a></button>
       </form>
     );
   };

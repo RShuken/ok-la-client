@@ -14,16 +14,6 @@ class LanguageCard extends Component {
     };
   }
 
-  // correct_count: 0;
-  // id: 9;
-  // incorrect_count: 0;
-  // language_id: 3;
-  // memory_value: 1;
-  // next: 10;
-  // original: 'amour';
-  // translation: 'love';
-
-  // write the delete card function
   handleDeleteCard = () => {
     const { API_ENDPOINT } = config;
     const fetchHeaders = {

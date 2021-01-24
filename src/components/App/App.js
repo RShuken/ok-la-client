@@ -6,7 +6,7 @@ import PublicOnlyRoute from '../PublicOnlyRoute/PublicOnlyRoute';
 import RegistrationRoute from '../../routes/RegistrationRoute/RegistrationRoute';
 import LoginRoute from '../../routes/LoginRoute/LoginRoute';
 import LanguageDeckDashboard from '../LanguageDeckDashboard/LanguageDeckDashboard';
-import LearningRoute from '../../routes/LearningRoute/LearningRoute';
+import Learning from '../Learning/Learning'
 import NotFoundRoute from '../../routes/NotFoundRoute/NotFoundRoute';
 import CommunityDecksDashboard from '../CommunityDecksDashboard/CommunityDecksDashboard';
 import UserDecksDashboard from '../UserDecksDashboard/UserDecksDashboard';
@@ -30,7 +30,7 @@ export default class App extends Component {
           {hasError && <p>There was an error! Oh no!</p>}
           <Switch>
             <PrivateRoute exact path={'/'} component={UserDecksDashboard} />
-            <PrivateRoute exact path={'/learn'} component={LearningRoute} />
+            <PrivateRoute exact path={'/learn/:id'} component={Learning} />
             <PrivateRoute
               exact
               path={'/community-dashboard'}

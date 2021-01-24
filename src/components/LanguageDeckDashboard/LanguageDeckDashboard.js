@@ -14,14 +14,12 @@ class LanguageDeckDashboard extends Component {
       translation: '',
       isToggled: false,
       words: [],
-      language: {}
+      language: {},
     };
   }
 
   componentDidMount = () => {
-    const { location, history } = this.props;
-    // const destination = (location.state || {}).from || '/';
-    // history.push(destination);
+    //const { location, history } = this.props;
     this.fetchLanguage();
   };
 
@@ -36,10 +34,13 @@ class LanguageDeckDashboard extends Component {
       },
     };
 
-    fetch(`${API_ENDPOINT}/language/${this.props.match.params.id}`, fetchHeaders)
+    fetch(
+      `${API_ENDPOINT}/language/${this.props.match.params.id}`,
+      fetchHeaders
+    )
       .then((res) => res.json())
       .then((data) => {
-        this.setState({ words: data.words, language: data.language  });
+        this.setState({ words: data.words, language: data.language });
       })
       .catch((err) => console.log(err.message));
   };
@@ -64,14 +65,14 @@ class LanguageDeckDashboard extends Component {
       }),
     };
 
-    fetch(`${API_ENDPOINT}/language/${this.state.language.id}/word/`, fetchHeaders)
+    fetch(
+      `${API_ENDPOINT}/language/${this.state.language.id}/word/`,
+      fetchHeaders
+    )
       .then((res) => res.json())
       .then((data) => {
         this.setState({
-          words: [
-            data.newWord,
-            ...this.state.words,
-          ],
+          words: [data.newWord, ...this.state.words],
           isToggled: !this.state.isToggled,
         });
       })
@@ -105,8 +106,20 @@ class LanguageDeckDashboard extends Component {
 
   handleDeleteDeck = () => {
     console.log('the delete deck button has been clicked');
-    // fetch request to delete the deck based on the deck ID.
-    //window.location.push('/') need to move the user to the '/' page
+    const { API_ENDPOINT } = config;
+    const fetchHeaders = {
+      method: 'DELETE',
+      headers: {
+        'content-type': 'application/json',
+        authorization: `Bearer ${TokenService.getAuthToken()}`,
+      },
+    };
+
+    fetch(`${API_ENDPOINT}/language/${this.state.language.id}`, fetchHeaders)
+      .then((res) => res.json())
+      .then((data) => {
+      })
+      .catch((err) => console.log(err.message));
   };
 
   handleAddCard = () => {
@@ -125,7 +138,7 @@ class LanguageDeckDashboard extends Component {
             {!this.state.isToggled ? 'Add Card' : 'Close Add Card'}
           </button>
           <button>
-            <a href='/learn'>Start learning</a>
+            <a href={`/learn/${this.state.language.id}`}>Start learning</a>
           </button>
           <button onClick={this.handleDeleteDeck}>Delete Deck</button>
         </div>

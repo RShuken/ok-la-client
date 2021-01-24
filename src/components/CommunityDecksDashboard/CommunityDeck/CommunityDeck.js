@@ -13,19 +13,18 @@ class CommunityDecks extends Component {
   }
 
 
-    handleClickAddDecks = () => {
-      console.log('the add deck function has been clicked and this the language ID to be added', this.state.language.id)
-      
+    handleClickAddDecks = () => {      
       const { API_ENDPOINT } = config;
       const fetchHeaders = {
         method: 'POST',
         headers: {
+          'content-type': 'application/json',
           authorization: `Bearer ${TokenService.getAuthToken()}`,
         },
       };
 
       fetch(`${API_ENDPOINT}/user/deck/${this.state.language.id}`, fetchHeaders)
-        .then((res) => res.json())
+        .then((res) => res)
         .catch((err) => console.log(err.message));
     }
     

@@ -8,6 +8,7 @@
   margin: 10px;
   padding: 1px 5px;
   min-width: auto;
+  flex-wrap: wrap;
 }
 
 .userDecksWrapper a {
@@ -41,6 +42,7 @@
   margin: 10px;
   padding: 10px;
   border-radius: 5px;
+  flex-wrap: wrap;
 }
 
 /* how to make this a grid where the max column are 3 and rows are unlimited? */
@@ -53,6 +55,7 @@
   border: 1px solid black;
   border-radius: 5px;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .languageDeckBox button{

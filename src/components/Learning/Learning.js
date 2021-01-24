@@ -18,7 +18,8 @@ class Learning extends Component {
 
   componentDidMount = () => {
     this.fetchHead();
-    this.fetchLanguage();
+    //this.fetchLanguage();
+    
   };
 
   fetchLanguage = () => {
@@ -26,13 +27,17 @@ class Learning extends Component {
     const fetchHeaders = {
       method: 'GET',
       headers: {
+        'content-type': 'application/json',
         authorization: `Bearer ${TokenService.getAuthToken()}`,
       },
     };
 
-    fetch(`${API_ENDPOINT}/language`, fetchHeaders)
+    fetch(
+      `${API_ENDPOINT}/language/${this.props.match.params.id}`,
+      fetchHeaders
+    )
       .then((res) => res.json())
-      .then((data) => {})
+      .then((data) => data)
       .catch((err) => console.log(err.message));
   };
 
@@ -41,11 +46,15 @@ class Learning extends Component {
     const fetchHeaders = {
       method: 'GET',
       headers: {
+        'content-type': 'application/json',
         authorization: `Bearer ${TokenService.getAuthToken()}`,
       },
     };
 
-    fetch(`${API_ENDPOINT}/language/head`, fetchHeaders)
+    fetch(
+      `${API_ENDPOINT}/language/${this.props.match.params.id}/head`,
+      fetchHeaders
+    )
       .then((res) => res.json())
       .then((data) => {
         this.setState({
@@ -188,6 +197,7 @@ class Learning extends Component {
   };
 
   render() {
+    console.log(this.state);
     return (
       <div className='translateWrapper'>
         <section>{this.chooseRender()}</section>
