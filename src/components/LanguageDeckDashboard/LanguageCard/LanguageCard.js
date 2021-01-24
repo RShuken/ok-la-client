@@ -26,14 +26,14 @@ class LanguageCard extends Component {
     fetch(`${API_ENDPOINT}/language/word/${this.state.word.id}`, fetchHeaders)
       .then((res) => res.json())
       .then((data) => {
-        this.setState({ word: null });
+        this.props.onDelete(this.props.word.id)
       })
       .catch((err) => console.log(err.message));
   };
 
   // this is required because when adding a new card to a language deck this component needs to check if the word passed through is still the same state, if not it needs to update and re-render the list.
   componentDidUpdate(prevProps, newProps) {
-    if (prevProps.word.original !== this.props.word.original) {
+    if (prevProps.word.id !== this.props.word.id) {
       this.setState({ word: this.props.word });
     }
   }

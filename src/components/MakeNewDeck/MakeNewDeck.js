@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import config from '../../config';
 import TokenService from '../../services/token-service';
 import './MakeNewDeck.css';
+import { withRouter } from 'react-router';
 
 class CreateNewDeck extends Component {
   constructor(props) {
@@ -28,7 +29,7 @@ class CreateNewDeck extends Component {
     fetch(`${API_ENDPOINT}/language`, fetchHeaders)
       .then((res) => res.json())
       .then((data) => {
-        //redirect to dashboard home
+        this.props.history.push('/')
       })
       .catch((err) => console.log(err.message));
   };
@@ -44,7 +45,7 @@ class CreateNewDeck extends Component {
       <form onSubmit={this.addNewLanguage} className="addNewLanguageForm">
         <h1>Title of Deck</h1>
         <input name='title' id='title' onChange={this.handleInput} />
-        <button type='submit'><a href='/'>Submit</a></button>
+        <button type='submit'>Submit</button>
       </form>
     );
   };
@@ -54,4 +55,4 @@ class CreateNewDeck extends Component {
   }
 }
 
-export default CreateNewDeck;
+export default withRouter(CreateNewDeck);

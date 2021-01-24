@@ -3,6 +3,7 @@ import config from '../../config';
 import TokenService from '../../services/token-service';
 import './LanguageDeckDashboard.css';
 import LanguageCard from './LanguageCard/LanguageCard';
+import { withRouter } from 'react-router';
 
 //This needs a fetch request to work.
 
@@ -118,6 +119,7 @@ class LanguageDeckDashboard extends Component {
     fetch(`${API_ENDPOINT}/language/${this.state.language.id}`, fetchHeaders)
       .then((res) => res.json())
       .then((data) => {
+        this.props.history.push('/');
       })
       .catch((err) => console.log(err.message));
   };
@@ -125,6 +127,13 @@ class LanguageDeckDashboard extends Component {
   handleAddCard = () => {
     this.setState({ isToggled: !this.state.isToggled });
   };
+
+  onDelete = (id) => {
+    console.log('this is the id of the card being deleted', id)
+    const wordsArray = this.state.words.filter((word) => word.id !== id);
+    console.log('this is the words array', wordsArray)
+    this.setState({ words: wordsArray})
+  }
 
   render() {
     const { words } = this.state;
@@ -137,18 +146,22 @@ class LanguageDeckDashboard extends Component {
           <button onClick={this.handleAddCard}>
             {!this.state.isToggled ? 'Add Card' : 'Close Add Card'}
           </button>
-          <button>
-            <a href={`/learn/${this.state.language.id}`}>Start learning</a>
-          </button>
+          {this.state.words.length < 3 ? (
+            <p>Add more words to start learning</p>
+          ) : (
+            <button>
+              <a href={`/learn/${this.state.language.id}`}>Start learning</a>
+            </button>
+          )}
           <button onClick={this.handleDeleteDeck}>Delete Deck</button>
         </div>
         {this.state.isToggled ? this.renderAddCard() : ''}
         {words.map((word, y) => (
-          <LanguageCard word={word} key={y} />
+          <LanguageCard word={word} key={y} onDelete={(id) => this.onDelete(id)}/>
         ))}
       </section>
     );
   }
 }
 
-export default LanguageDeckDashboard;
+export default withRouter(LanguageDeckDashboard);
