@@ -18,7 +18,7 @@ class Learning extends Component {
 
   componentDidMount = () => {
     this.fetchHead();
-    //this.fetchLanguage();
+    this.fetchLanguage();
     
   };
 
@@ -74,7 +74,7 @@ class Learning extends Component {
   checkGuess = (e) => {
     e.preventDefault();
     const { API_ENDPOINT } = config;
-    fetch(`${API_ENDPOINT}/language/guess`, {
+    fetch(`${API_ENDPOINT}/language/${this.props.match.params.id}/guess`, {
       method: 'POST',
       headers: {
         'content-type': 'application/json',
@@ -84,6 +84,7 @@ class Learning extends Component {
     })
       .then((res) => res.json())
       .then((data) => {
+        console.log(data);
         this.setState({ guessData: data });
       });
   };
@@ -100,7 +101,7 @@ class Learning extends Component {
             {this.state.guessData.answer}
           </h2>
           <button>
-            <a href='/learn'>Try another word!</a>
+            <a href={`/learn/${this.props.match.params.id}`}>Try another word!</a>
           </button>
           <p>Your total score is: {this.state.guessData.totalScore}</p>
           <h3>
@@ -127,7 +128,7 @@ class Learning extends Component {
             {this.state.guessData.answer}
           </h2>
           <button>
-            <a href='/learn'>Try another word!</a>
+            <a href={`/learn/${this.props.match.params.id}`}>Try another word!</a>
           </button>
           <p>Your total score is: {this.state.guessData.totalScore}</p>
           <h3>
