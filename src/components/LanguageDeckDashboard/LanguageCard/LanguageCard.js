@@ -26,7 +26,7 @@ class LanguageCard extends Component {
     fetch(`${API_ENDPOINT}/language/word/${this.state.word.id}`, fetchHeaders)
       .then((res) => res.json())
       .then((data) => {
-        this.props.onDelete(this.props.word.id)
+        this.props.onDelete(this.props.word.id);
       })
       .catch((err) => console.log(err.message));
   };
@@ -73,8 +73,8 @@ class LanguageCard extends Component {
         });
       })
       .catch((err) => console.log(err.message));
-    
   };
+
 
   handleEditBtn = () => {
     this.setState({ isToggled: !this.state.isToggled });

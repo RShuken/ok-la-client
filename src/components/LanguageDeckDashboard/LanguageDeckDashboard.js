@@ -5,7 +5,7 @@ import './LanguageDeckDashboard.css';
 import LanguageCard from './LanguageCard/LanguageCard';
 import { withRouter } from 'react-router';
 
-//This needs a fetch request to work.
+//Issue with the access value in state.
 
 class LanguageDeckDashboard extends Component {
   constructor(props) {
@@ -16,11 +16,11 @@ class LanguageDeckDashboard extends Component {
       isToggled: false,
       words: [],
       language: {},
+      access: false,
     };
   }
 
   componentDidMount = () => {
-    //const { location, history } = this.props;
     this.fetchLanguage();
   };
 
@@ -41,7 +41,11 @@ class LanguageDeckDashboard extends Component {
     )
       .then((res) => res.json())
       .then((data) => {
-        this.setState({ words: data.words, language: data.language });
+        this.setState({
+          words: data.words,
+          language: data.language,
+          access: data.language.is_public,
+        });
       })
       .catch((err) => console.log(err.message));
   };
@@ -49,6 +53,42 @@ class LanguageDeckDashboard extends Component {
   handleInput = (e) => {
     const inputs = { [e.target.name]: e.target.value };
     this.setState(inputs);
+  };
+
+  handleCheckBoxChange = () => {
+    const access = !this.state.access
+    console.log('after handleCheckBoxChange this is the value of access', access)
+    this.handleUpdateAccess(access);
+  };
+
+  handleUpdateAccess = (access) => {
+        console.log(
+          'in the handleUpdateAccess function this is hte value of access',
+          access
+        );
+
+    const { API_ENDPOINT } = config;
+    const fetchHeaders = {
+      method: 'PUT',
+      headers: {
+        'content-type': 'application/json',
+        authorization: `Bearer ${TokenService.getAuthToken()}`,
+      },
+      body: JSON.stringify({
+        access: access,
+      }),
+    };
+
+    fetch(
+      `${API_ENDPOINT}/language/${this.props.match.params.id}/access`,
+      fetchHeaders
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data)
+        this.setState({access: access})
+      })
+      .catch((err) => console.log(err.message));
   };
 
   handleAddingCard = (e) => {
@@ -129,14 +169,15 @@ class LanguageDeckDashboard extends Component {
   };
 
   onDelete = (id) => {
-    console.log('this is the id of the card being deleted', id)
+    console.log('this is the id of the card being deleted', id);
     const wordsArray = this.state.words.filter((word) => word.id !== id);
-    console.log('this is the words array', wordsArray)
-    this.setState({ words: wordsArray})
-  }
+    console.log('this is the words array', wordsArray);
+    this.setState({ words: wordsArray });
+  };
 
   render() {
     const { words } = this.state;
+    console.log('this is access on load', this.state.access);
     return (
       <section className='wordCardsContainer'>
         <h1>{this.state.language.name}</h1>
@@ -154,11 +195,37 @@ class LanguageDeckDashboard extends Component {
             </button>
           )}
           <button onClick={this.handleDeleteDeck}>Delete Deck</button>
+          <div>
+            {this.state.access ? (
+              <input
+                type='checkbox'
+                checked={true}
+                id='publicAccess'
+                onChange={this.handleCheckBoxChange}
+              />
+            ) : (
+              <input
+                type='checkbox'
+                checked={false}
+                id='publicAccess'
+                onChange={this.handleCheckBoxChange}
+              />
+            )}
+            <label>
+              Check this box to make the deck public to the community
+            </label>
+          </div>
         </div>
         {this.state.isToggled ? this.renderAddCard() : ''}
-        <div className='wordMapBox'>{words.map((word, y) => (
-          <LanguageCard word={word} key={y} onDelete={(id) => this.onDelete(id)}/>
-        ))}</div>
+        <div className='wordMapBox'>
+          {words.map((word, y) => (
+            <LanguageCard
+              word={word}
+              key={y}
+              onDelete={(id) => this.onDelete(id)}
+            />
+          ))}
+        </div>
       </section>
     );
   }
