@@ -103,11 +103,11 @@ class Learning extends Component {
           <button>
             <a href={`/learn/${this.props.match.params.id}`}>Try another word!</a>
           </button>
-          <p>Your total score is: {this.state.guessData.totalScore}</p>
+          <p>Your total score is: {this.state.guessData.totalScore+1}</p>
           <h3>
             {' '}
             You have answered this word correctly{' '}
-            {this.state.guessData.wordCorrectCount} times
+            {this.state.guessData.wordCorrectCount+1} times
           </h3>
           <h3>
             {' '}
@@ -141,7 +141,7 @@ class Learning extends Component {
           <h3>
             {' '}
             You have answered this word incorrectly{' '}
-            {this.state.wordIncorrectCount} times
+            {this.state.wordIncorrectCount+1} times
           </h3>
         </div>
       );
@@ -198,7 +198,7 @@ class Learning extends Component {
   };
 
   render() {
-    console.log(this.state);
+    console.log('this is the state',this.state);
     return (
       <div className='translateWrapper'>
         <section>{this.chooseRender()}</section>

@@ -156,9 +156,9 @@ class LanguageDeckDashboard extends Component {
           <button onClick={this.handleDeleteDeck}>Delete Deck</button>
         </div>
         {this.state.isToggled ? this.renderAddCard() : ''}
-        {words.map((word, y) => (
+        <div className='wordMapBox'>{words.map((word, y) => (
           <LanguageCard word={word} key={y} onDelete={(id) => this.onDelete(id)}/>
-        ))}
+        ))}</div>
       </section>
     );
   }

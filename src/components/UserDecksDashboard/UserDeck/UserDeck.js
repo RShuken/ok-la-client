@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import './UserDeck.css'
+import './UserDeck.css';
 import config from '../../../config';
 import TokenService from '../../../services/token-service';
 
-
-//Question: window.location is not working for me, it says that it is not a function. 
+//Question: window.location is not working for me, it says that it is not a function.
 //Question: issue after editing the title of a deck. the app crashes when trying to click through to the new title
 
 class UserDeck extends Component {
@@ -13,7 +12,7 @@ class UserDeck extends Component {
     this.state = {
       language: this.props.language,
       isToggled: false,
-      name: ''
+      name: '',
     };
   }
 
@@ -39,7 +38,10 @@ class UserDeck extends Component {
   // when clicking edit deck it will take the user to the dynamic path of the language deck based on the Id of the language.
   handleEditDeckTitle = (e) => {
     e.preventDefault();
-    console.log('the edit title has started and this is the new title', this.state.name)
+    console.log(
+      'the edit title has started and this is the new title',
+      this.state.name
+    );
     const { API_ENDPOINT } = config;
     const fetchHeaders = {
       method: 'PUT',
@@ -52,13 +54,16 @@ class UserDeck extends Component {
       }),
     };
 
-    fetch(`${API_ENDPOINT}/language/${this.state.language.id}/title`, fetchHeaders)
+    fetch(
+      `${API_ENDPOINT}/language/${this.state.language.id}/title`,
+      fetchHeaders
+    )
       .then((res) => res.json())
       .then((data) => {
-        console.log(data)
-        // issue happens here after adding a new name when clicking into the new deck it crashes. 
+        console.log(data);
+        // issue happens here after adding a new name when clicking into the new deck it crashes.
         this.setState({
-          language: { name: data.name } ,
+          language: { name: data.name },
           isToggled: !this.state.isToggled,
         });
       })
@@ -66,7 +71,7 @@ class UserDeck extends Component {
   };
 
   handleClickEditTitle = () => {
-    this.setState({ isToggled: true });
+    this.setState({ isToggled: !this.state.isToggled });
   };
 
   handleInput = (e) => {
@@ -87,18 +92,25 @@ class UserDeck extends Component {
     return (
       <div className='userDeckWrapper'>
         {/* this icon button will take the user to the edit deck page */}
-        <button onClick={this.handleClickEditTitle}>edit title</button>
         <div className='languageBox'>
           <img src={this.state.language.icon} alt={this.state.language.icon} />
           <h3>
             {/* need to be able to pass the language.id to the next page from clicking this component */}
-            {this.state.isToggled === false ? <a href={`/language-dashboard/${this.state.language.id}`}>{this.state.language.name}</a> : this.editTitleForm()}
+            {this.state.isToggled === false ? (
+              <a href={`/language-dashboard/${this.state.language.id}`}>
+                {this.state.language.name}
+              </a>
+            ) : (
+              this.editTitleForm()
+            )}
           </h3>
           <p>Number of cards {this.state.language.numCards}</p>
           <p>Score: {this.state.language.total_score}</p>
         </div>
-        {/* this icon button will delete the user deck and refresh the page */}
-        <button onClick={this.handleDeleteDeck}>delete</button>
+        <div className='btnBox'>
+          <button onClick={this.handleDeleteDeck}>delete</button>
+          <button onClick={this.handleClickEditTitle}>edit title</button>
+        </div>
       </div>
     );
   };

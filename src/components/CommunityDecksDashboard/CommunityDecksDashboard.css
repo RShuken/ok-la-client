@@ -65,3 +65,13 @@
 .languageDeckBox p{
     margin: 5px;
 }
+
+@media (max-width: 500px) {
+  .deck-box {
+    justify-content: center;
+  }
+
+  h1 {
+    text-align: center;
+  }
+}
