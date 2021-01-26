@@ -52,7 +52,7 @@ export default class App extends Component {
               component={RegistrationRoute}
             />
             <PublicOnlyRoute exact path={'/login'} component={LoginRoute} />
-            <Route component={NotFoundRoute} />
+            {/* <Route component={NotFoundRoute} /> */}
           </Switch>
         </main>
       </div>
