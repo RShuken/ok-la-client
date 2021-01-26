@@ -3,7 +3,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: 1px solid black;
   border-radius: 5px;
   margin: 10px;
   padding: 1px 5px;
@@ -29,7 +28,10 @@
   text-decoration: none;
 }
 
-/* this header is slightly off center, how to correct? */
+.userDecksBtn {
+padding: 15px 15px; 
+}
+
 
 .dashHeader button {
   margin: 20px;
@@ -38,7 +40,6 @@
 .deck-box {
   display: flex;
   flex-direction: row;
-  border: 1px solid black;
   margin: 10px;
   padding: 10px;
   border-radius: 5px;
@@ -52,18 +53,13 @@
   flex-direction: column;
   padding: 5px;
   margin: 5px;
-  border: 1px solid black;
   border-radius: 5px;
   align-items: center;
   flex-wrap: wrap;
 }
 
-.languageDeckBox button{
-    margin-top: 5px;
-}
-
-.languageDeckBox p{
-    margin: 5px;
+.languageDeckBox p {
+  margin: 5px;
 }
 
 @media (max-width: 500px) {

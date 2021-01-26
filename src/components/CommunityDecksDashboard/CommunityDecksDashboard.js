@@ -43,9 +43,9 @@ class CommunityDecksDashboard extends Component {
       <div className='userDecksWrapper'>
         <h1>Add Community Decks</h1>
         {/* this will take you to my decks */}
-        <button>
-          <a href='/'>My Decks</a>
-        </button>
+        
+          <a href='/'><button className='userDecksBtn'>My Decks</button></a>
+        
         {/* This will be the container for all community decks */}
         <div className='deck-box'>
           {this.state.languages.map((deck, y) => <CommunityDeck language={deck} key={y}/>)}

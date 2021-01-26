@@ -1,0 +1,36 @@
+
+.languageDeckBox {
+background: #252525;
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+border-radius: 4px;
+height: 125px;
+width: 155px;
+padding: 0;
+}
+
+.addLanguage {
+margin-top: auto;
+padding: 20px 0 20px 0;
+width: 100%;
+}
+
+.languageDeckBox p{
+    color: white; 
+    margin: 0;
+    padding: 0;
+}
+
+.languageTitle {
+font-weight: 600;
+font-size: 24px;
+line-height: 22px;
+
+color: #FFFFFF;
+margin: 0;
+padding: 10px 0 0 0;
+}
+
+p.addResponse{
+   padding-top: 10px; 
+   margin-top: 10px; 
+}

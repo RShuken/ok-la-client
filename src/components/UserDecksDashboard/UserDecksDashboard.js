@@ -44,9 +44,9 @@ class UserDecksDashboard extends Component {
           <button>
             <a href='/make-new-deck'>Make New Deck</a>
           </button>
-          <h1>
-            <a href='/'>My Decks</a>
-          </h1>
+          
+            <a href='/'><h1>My Decks</h1></a>
+          
           {/* this will take you to community decks */}
           <button>
             <a href='/community-dashboard'>Add Community Decks</a>

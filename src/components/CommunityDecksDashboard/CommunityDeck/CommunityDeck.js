@@ -38,12 +38,13 @@ class CommunityDecks extends Component {
   renderCommunityDeck() {
     return (
       <div className='languageDeckBox'>
-        <img src={this.state.language.icon} alt={this.state.language.icon} />
-        {this.state.isToggled === false ? <button onClick={this.handleClickAddDecks}>
-          +Add {this.state.language.name}
-        </button> : <p>Language Added</p>}
+        <h1 className='languageTitle'>{this.state.language.name}</h1>
+        <p>Highest Score: {this.state.language.total_score}</p>
+        {this.state.isToggled === false ? <button className='addLanguage' onClick={this.handleClickAddDecks}>
+          + Add {this.state.language.name}
+        </button> : <p className='addResponse'>Language Added</p>}
         
-        <p>Total Score: {this.state.language.total_score}</p>
+        
       </div>
     );
   }

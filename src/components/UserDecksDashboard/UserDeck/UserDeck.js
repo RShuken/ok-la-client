@@ -2,9 +2,12 @@ import React, { Component } from 'react';
 import './UserDeck.css';
 import config from '../../../config';
 import TokenService from '../../../services/token-service';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faEdit } from '@fortawesome/free-solid-svg-icons';
 
-//Question: window.location is not working for me, it says that it is not a function.
-//Question: issue after editing the title of a deck. the app crashes when trying to click through to the new title
+const elementTrash = <FontAwesomeIcon icon={faTrash} />;
+const elementEdit = <FontAwesomeIcon icon={faEdit} />;
 
 class UserDeck extends Component {
   constructor(props) {
@@ -82,7 +85,7 @@ class UserDeck extends Component {
   editTitleForm = () => {
     return (
       <form onSubmit={this.handleEditDeckTitle}>
-        <input type='text' name='name' id='name' onChange={this.handleInput} />
+        <input type='text' name='name' id='name' placeholder='edit title' onChange={this.handleInput} />
         <button type='submit'>Submit</button>
       </form>
     );
@@ -107,8 +110,12 @@ class UserDeck extends Component {
           <p>Highest Score: {this.state.language.total_score}</p>
         </div>
         <div className='btnBox'>
-          <button className='deleteBtn' onClick={this.handleDeleteDeck}>delete</button>
-          <button className='editBtn' onClick={this.handleClickEditTitle}>edit title</button>
+          <button className='deleteBtn' onClick={this.handleDeleteDeck}>
+            {elementTrash}
+          </button>
+          <button className='editBtn' onClick={this.handleClickEditTitle}>
+            {elementEdit}
+          </button>
         </div>
       </div>
     );
