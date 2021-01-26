@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-// import { Route, Switch } from 'react-router-dom';
-import { Switch } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import Header from '../Header/Header';
 import PrivateRoute from '../PrivateRoute/PrivateRoute';
 import PublicOnlyRoute from '../PublicOnlyRoute/PublicOnlyRoute';
@@ -8,7 +7,7 @@ import RegistrationRoute from '../../routes/RegistrationRoute/RegistrationRoute'
 import LoginRoute from '../../routes/LoginRoute/LoginRoute';
 import LanguageDeckDashboard from '../LanguageDeckDashboard/LanguageDeckDashboard';
 import Learning from '../Learning/Learning'
-//import NotFoundRoute from '../../routes/NotFoundRoute/NotFoundRoute';
+import NotFoundRoute from '../../routes/NotFoundRoute/NotFoundRoute';
 import CommunityDecksDashboard from '../CommunityDecksDashboard/CommunityDecksDashboard';
 import UserDecksDashboard from '../UserDecksDashboard/UserDecksDashboard';
 import MakeNewDeck from '../MakeNewDeck/MakeNewDeck';
@@ -53,7 +52,7 @@ export default class App extends Component {
               component={RegistrationRoute}
             />
             <PublicOnlyRoute exact path={'/login'} component={LoginRoute} />
-            {/* <Route component={NotFoundRoute} /> */}
+            <Route component={NotFoundRoute} />
           </Switch>
         </main>
       </div>
