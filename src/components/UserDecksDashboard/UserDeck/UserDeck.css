@@ -24,6 +24,7 @@
   width: 80%;
 }
 
+
 .editBtn {
   width: 88px;
   height: 48px;
@@ -47,8 +48,6 @@
 }
 
 .languageBox p {
-  font-family: Lato;
-  font-style: normal;
   font-weight: 300;
   font-size: 14px;
   line-height: 22px;
@@ -57,14 +56,11 @@
   padding: 0;
 }
 
-.languageBox a {
-  font-family: Lato;
-  font-style: normal;
+.languageBox h2 {
   font-weight: 600;
   font-size: 24px;
-  line-height: 22px;
   color: #ffffff;
-  margin: 0;
+  margin: 10px;
   padding: 0;
 }
 

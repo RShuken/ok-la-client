@@ -96,23 +96,33 @@ class UserDeck extends Component {
       <div className='userDeckWrapper'>
         {/* this icon button will take the user to the edit deck page */}
         <div className='languageBox'>
-          <h3>
+          
             {/* need to be able to pass the language.id to the next page from clicking this component */}
             {this.state.isToggled === false ? (
-              <a href={`/language-dashboard/${this.state.language.id}`}>
+              <a href={`/language-dashboard/${this.state.language.id}`}><h2>
                 {this.state.language.name.toUpperCase()}
-              </a>
+              </h2></a>
             ) : (
               this.editTitleForm()
             )}
-          </h3>
+          
           <p>Highest Score: {this.state.language.total_score}</p>
         </div>
         <div className='btnBox'>
-          <button className='deleteBtn' value='trash' onClick={this.handleDeleteDeck}>
+          <button
+            className='deleteBtn'
+            type='button'
+            onClick={this.handleDeleteDeck}
+          >
+            <span style={{ display: 'none' }}>trash button icon element</span>
             {elementTrash}
           </button>
-          <button className='editBtn' value='trash' onClick={this.handleClickEditTitle}>
+          <button
+            className='editBtn'
+            type='button'
+            onClick={this.handleClickEditTitle}
+          >
+            <span style={{ display: 'none' }}>edit button icon element</span>
             {elementEdit}
           </button>
         </div>
