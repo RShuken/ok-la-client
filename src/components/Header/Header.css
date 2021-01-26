@@ -27,8 +27,20 @@ nav a {
   font-weight: normal;
   font-size: 16px;
   line-height: 22px;
-  color: #000000;
+  color: black;
   margin: 7px;
+  padding: 0; 
+}
+
+.publicNav {
+  background: #252525;
+  margin: 0px;
+  padding: 0px;
+
+}
+
+.publicNav a {
+    color: white; 
 }
 
 .menuBtn button {
@@ -57,15 +69,30 @@ nav a {
   margin-top: 0px;
 }
 
-.menuBtn {
+nav a {
+  color: white; 
 }
 
-@media (max-width: 600px) {
-  .menuBtn {
-  }
 
+@media (max-width: 600px) {
   nav {
     display: flex;
     flex-direction: column;
   }
+  
+}
+
+@media all and (min-width: 600px) {
+  .publicNav {
+  background: transparent;
+  margin: 0px;
+  padding: 0px;
+}
+.publicNav a {
+    color: black; 
+}
+
+nav a {
+  color:black; 
+}
 }

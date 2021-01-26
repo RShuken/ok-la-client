@@ -1,13 +1,11 @@
 .userDecksWrapper {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
-  border-radius: 5px;
-  margin: 10px;
-  padding: 1px 5px;
   min-width: auto;
   flex-wrap: wrap;
+      text-align: center;
 }
 
 .userDecksWrapper a {

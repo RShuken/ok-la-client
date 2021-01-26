@@ -75,7 +75,6 @@ class LanguageCard extends Component {
       .catch((err) => console.log(err.message));
   };
 
-
   handleEditBtn = () => {
     this.setState({ isToggled: !this.state.isToggled });
   };
@@ -107,16 +106,20 @@ class LanguageCard extends Component {
 
   renderCard = (word) => {
     return (
-      <div className='wordCard'>
-        <div className='translationWrapper'>
+      <div className='wordCardWrapper'>
+        <div className='languageBox'>
           <p>Original: </p>
           <h2>{word.original}</h2>
           <p>Translation: </p>
           <h2>{word.translation}</h2>
         </div>
-        <div className='answerCountWrapper'>
-          <button onClick={this.handleEditBtn}>Edit Card</button>
-          <button onClick={this.handleDeleteCard}>Delete Card</button>
+        <div className='btnBox'>
+          <button className='editBtn' onClick={this.handleEditBtn}>
+            Edit Card
+          </button>
+          <button className='deleteBtn' onClick={this.handleDeleteCard}>
+            Delete Card
+          </button>
         </div>
       </div>
     );

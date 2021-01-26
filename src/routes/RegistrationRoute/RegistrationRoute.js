@@ -17,11 +17,9 @@ class RegistrationRoute extends Component {
     return (
       <div className='register-container'>
         <section>
-          <h3>
-            Practice learning a language with the spaced repetition revision
-            technique.
-          </h3>
-          <h2>Sign up</h2>
+          <h2>
+           Sign Up
+          </h2>
           <RegistrationForm
             onRegistrationSuccess={this.handleRegistrationSuccess}
           />

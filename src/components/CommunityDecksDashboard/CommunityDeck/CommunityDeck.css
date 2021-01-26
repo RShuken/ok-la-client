@@ -1,36 +1,36 @@
-
 .languageDeckBox {
-background: #252525;
-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-border-radius: 4px;
-height: 125px;
-width: 155px;
-padding: 0;
+  background: #252525;
+  filter: drop-shadow(0px 0px 3.5px #2dc2c2);
+  border-radius: 4px;
+  height: 125px;
+  width: 155px;
+  padding: 0;
+  margin: 10px;
 }
 
 .addLanguage {
-margin-top: auto;
-padding: 20px 0 20px 0;
-width: 100%;
+  margin-top: auto;
+  padding: 20px 0 20px 0;
+  width: 100%;
 }
 
-.languageDeckBox p{
-    color: white; 
-    margin: 0;
-    padding: 0;
+.languageDeckBox p {
+  color: white;
+  margin: 0;
+  padding: 0;
 }
 
 .languageTitle {
-font-weight: 600;
-font-size: 24px;
-line-height: 22px;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 22px;
 
-color: #FFFFFF;
-margin: 0;
-padding: 10px 0 0 0;
+  color: #ffffff;
+  margin: 0;
+  padding: 10px 0 0 0;
 }
 
-p.addResponse{
-   padding-top: 10px; 
-   margin-top: 10px; 
+p.addResponse {
+  padding-top: 10px;
+  margin-top: 10px;
 }

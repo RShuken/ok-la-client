@@ -181,8 +181,26 @@ class LanguageDeckDashboard extends Component {
     return (
       <section className='wordCardsContainer'>
         <h1>{this.state.language.name}</h1>
+        <div className='checkBoxContainer'>
+          {this.state.access ? (
+            <input
+              type='checkbox'
+              checked={true}
+              id='publicAccess'
+              onChange={this.handleCheckBoxChange}
+            />
+          ) : (
+            <input
+              type='checkbox'
+              checked={false}
+              id='publicAccess'
+              onChange={this.handleCheckBoxChange}
+            />
+          )}
+          <label>Make Public</label>
+        </div>
         <p>Total Score: {this.state.language.total_score} points</p>
-        <p>{this.state.words.length} Word Cards in Deck</p>
+        <p>{this.state.words.length} Words in Deck</p>
         <div className='btnContainer'>
           <button onClick={this.handleAddCard}>
             {!this.state.isToggled ? 'Add Card' : 'Close Add Card'}
@@ -195,26 +213,6 @@ class LanguageDeckDashboard extends Component {
             </button>
           )}
           <button onClick={this.handleDeleteDeck}>Delete Deck</button>
-          <div>
-            {this.state.access ? (
-              <input
-                type='checkbox'
-                checked={true}
-                id='publicAccess'
-                onChange={this.handleCheckBoxChange}
-              />
-            ) : (
-              <input
-                type='checkbox'
-                checked={false}
-                id='publicAccess'
-                onChange={this.handleCheckBoxChange}
-              />
-            )}
-            <label>
-              Check this box to make the deck public to the community
-            </label>
-          </div>
         </div>
         {this.state.isToggled ? this.renderAddCard() : ''}
         <div className='wordMapBox'>

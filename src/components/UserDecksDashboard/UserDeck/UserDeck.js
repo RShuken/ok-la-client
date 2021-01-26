@@ -96,7 +96,6 @@ class UserDeck extends Component {
       <div className='userDeckWrapper'>
         {/* this icon button will take the user to the edit deck page */}
         <div className='languageBox'>
-          <img src={this.state.language.icon} alt={this.state.language.icon} />
           <h3>
             {/* need to be able to pass the language.id to the next page from clicking this component */}
             {this.state.isToggled === false ? (

@@ -1,31 +1,28 @@
 .userDecksWrapper {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border-radius: 5px;
-  margin: 10px;
-  padding: 1px 5px;
-  min-width: auto;
+  justify-content: initial;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background: #252525;
 }
 
 .dashHeader {
   display: flex;
   flex-direction: row;
-  margin: 10px;
+  margin: 0;
 }
 
 .dashHeader h1 {
   margin: 20px;
-  color: black; 
-  font-weight: 900; 
+  color: white;
+  font-weight: 900;
 }
 
 .dashHeader a {
   text-decoration: none;
 }
-
-/* this header is slightly off center, how to correct? */
 
 .dashHeader button {
   margin: 20px;
@@ -60,5 +57,15 @@
   }
   .dashHeader :nth-child(3) {
     order: 3;
+  }
+
+  .decks-container {
+    flex-direction: column;
+  }
+
+  .userDecksWrapper {
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
   }
 }

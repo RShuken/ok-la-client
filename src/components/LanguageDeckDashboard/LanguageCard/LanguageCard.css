@@ -1,22 +1,93 @@
-.translationWrapper {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+.wordCardWrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+  margin: 5px;
+  border-radius: 5px;
+  justify-content: center;
+  filter: drop-shadow(0px 0px 3.5px #2dc2c2);
+  flex-wrap: wrap;
+  margin: 20px 10px;
 }
 
-.translationWrapper p, h2{
-margin: 0;
-padding: 3px;
+.languageBox {
+  display: flex;
+  flex-direction: row;
+  padding: 5px;
+  align-items: center;
+  width: 176px;
+  height: 200px;
+  background: #252525;
+  border-radius: 4px;
 }
 
-.editCard {
-    margin: 10px;
-    padding: 10px; 
-    display: flex;
-    flex-direction: column;
-    border: 1px solid black;
+.languageBox input {
+  width: 80%;
 }
 
-.editCard button{
-    margin: 10px 0px;
+.editBtn {
+  width: 88px;
+  height: 48px;
+  left: 521px;
+  top: 124px;
+  margin: 0px;
+  padding: 0px;
+  background: #2686f6;
+  border-radius: 0px 0px 0px 4px;
+}
+
+.deleteBtn {
+  width: 88px;
+  height: 48px;
+  left: 433px;
+  top: 124px;
+  margin: 0px;
+  padding: 0px;
+  background: #fc4747;
+  border-radius: 0px 0px 4px 0px;
+}
+
+.languageBox p {
+  font-family: Lato;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 22px;
+  color: #ffffff;
+  margin: 0;
+  padding: 0;
+}
+
+.languageBox a {
+  font-family: Lato;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 22px;
+  color: #ffffff;
+  margin: 0;
+  padding: 0;
+}
+
+.languageBox button {
+  margin: 10px;
+  padding: 0;
+}
+
+.btnBox {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 0px;
+  padding: 0px;
+}
+
+.btnBox button {
+  margin: 0;
+}
+
+@media (min-width: 500px) {
+  h1 {
+    text-align: center;
+  }
 }

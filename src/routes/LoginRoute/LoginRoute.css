@@ -1,5 +1,13 @@
 .loginPage h2 {
+    margin: 0px;
+    padding: 30px 0 20px 0;
     text-align: center;
-    margin: 40px 20px;
     font-size: 45px;
+    color: white; 
+}
+
+.loginPage {
+  background: #252525;
+    min-height: 100vh;
+    color: white;
 }

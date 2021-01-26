@@ -2,6 +2,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  
 }
 
 .addNewLanguageForm {
@@ -9,16 +10,21 @@
   justify-content: center;
   display: flex;
   flex-direction: column;
-  border: 1px solid black;
   border-radius: 5px;
-  width: 50%;
+  width: auto;
   margin-top: 20px; 
+    box-shadow: 0px 0px 5.5px #2dc2c2;
 }
 
 .addNewLanguageForm button {
   margin: 10px 0;
+  padding: 10px; 
 }
 
 .addNewLanguageForm a {
   text-decoration: none;
+}
+
+.addNewLanguageForm input {
+  width: 80%; 
 }

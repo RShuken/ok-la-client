@@ -44,7 +44,7 @@ class CreateNewDeck extends Component {
     return (
       <form onSubmit={this.addNewLanguage} className="addNewLanguageForm">
         <h1>Title of Deck</h1>
-        <input name='title' id='title' onChange={this.handleInput} />
+        <input placeholder='new deck title' name='title' id='title' onChange={this.handleInput} />
         <button type='submit'>Submit</button>
       </form>
     );
