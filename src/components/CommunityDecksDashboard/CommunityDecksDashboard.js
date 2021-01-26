@@ -15,8 +15,6 @@ class CommunityDecksDashboard extends Component {
 
   componentDidMount() {
     this.fetchDecks();
-    // fetch request to get all of the community CommunityDecks ## it would be good to add a backend function that returns true or false if the user already has the deck in their deck library. that way the users can get feedback on if they already added a deck and it gives a way to only show decks they don't already own. 
-    // needs language name, and number of cards
   }
 
   fetchDecks = () => {
@@ -31,14 +29,12 @@ class CommunityDecksDashboard extends Component {
           fetch(`${API_ENDPOINT}/language`, fetchHeaders)
             .then((res) => res.json())
             .then((data) => {
-              console.log(data);
               this.setState({ languages: data.language });
             })
             .catch((err) => console.log(err.message));
   };
 
   render() {
-    console.log(this.state.language);
     return (
       <div className='userDecksWrapper'>
         <h1>Add Community Decks</h1>
