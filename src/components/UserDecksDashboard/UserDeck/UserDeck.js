@@ -85,7 +85,7 @@ class UserDeck extends Component {
   editTitleForm = () => {
     return (
       <form onSubmit={this.handleEditDeckTitle}>
-        <input type='text' name='name' id='name' placeholder='edit title' onChange={this.handleInput} />
+        <input type='text' name='name' required id='name' placeholder='edit title' onChange={this.handleInput} />
         <button type='submit'>Submit</button>
       </form>
     );
@@ -109,10 +109,10 @@ class UserDeck extends Component {
           <p>Highest Score: {this.state.language.total_score}</p>
         </div>
         <div className='btnBox'>
-          <button className='deleteBtn' onClick={this.handleDeleteDeck}>
+          <button className='deleteBtn' value='trash' onClick={this.handleDeleteDeck}>
             {elementTrash}
           </button>
-          <button className='editBtn' onClick={this.handleClickEditTitle}>
+          <button className='editBtn' value='trash' onClick={this.handleClickEditTitle}>
             {elementEdit}
           </button>
         </div>

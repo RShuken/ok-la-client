@@ -28,7 +28,7 @@
   font-size: 10px;
   line-height: 22px;
 
-  color: #fc4747;
+  color: #f8b4b4;
   margin: 0;
   padding: 0;
 }
@@ -80,7 +80,8 @@
   align-items: center;
 }
 
-.guessContainer h2, .guessContainer p {
+.guessContainer h2,
+.guessContainer p {
   color: white;
 }
 

@@ -25,6 +25,10 @@
   text-decoration: none;
 }
 
+.addNewLanguageForm label {
+ text-align: center;
+}
+
 .addNewLanguageForm input {
   width: 80%; 
 }

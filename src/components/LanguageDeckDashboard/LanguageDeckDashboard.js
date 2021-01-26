@@ -124,22 +124,22 @@ class LanguageDeckDashboard extends Component {
     return (
       <form className='editCard' onSubmit={this.handleAddingCard.bind(this)}>
         <h2>Add Card</h2>
-        <p>Original Word</p>
+        <label><p>Original Word</p>
         <input
           type='text'
           id='original'
           name='original'
           onChange={this.handleInput}
           placeholder={this.state.original}
-        ></input>
-        <p>Translation</p>
+        ></input></label>
+        <label><p>Translation</p>
         <input
           type='text'
           id='translation'
           name='translation'
           onChange={this.handleInput}
           placeholder={this.state.translation}
-        ></input>
+        ></input></label>
         <button type='submit'>Submit</button>
       </form>
     );
@@ -182,7 +182,7 @@ class LanguageDeckDashboard extends Component {
       <section className='wordCardsContainer'>
         <h1>{this.state.language.name}</h1>
         <div className='checkBoxContainer'>
-          {this.state.access ? (
+          <label>{this.state.access ? (
             <input
               type='checkbox'
               checked={true}
@@ -197,7 +197,7 @@ class LanguageDeckDashboard extends Component {
               onChange={this.handleCheckBoxChange}
             />
           )}
-          <label>Make Public</label>
+          Make Public</label>
         </div>
         <p>Total Score: {this.state.language.total_score} points</p>
         <p>{this.state.words.length} Words in Deck</p>

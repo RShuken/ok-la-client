@@ -31,7 +31,7 @@
   top: 124px;
   margin: 0px;
   padding: 0px;
-  background: #2686f6;
+  background: #124886;
   border-radius: 0px 0px 0px 4px;
 }
 
@@ -42,7 +42,7 @@
   top: 124px;
   margin: 0px;
   padding: 0px;
-  background: #fc4747;
+  background: #9b2a2a;
   border-radius: 0px 0px 4px 0px;
 }
 
@@ -70,7 +70,7 @@
 
 .languageBox button {
   margin: 10px;
-  padding: 0;
+  padding: 10px;
 }
 
 .btnBox {

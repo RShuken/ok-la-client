@@ -83,22 +83,24 @@ class LanguageCard extends Component {
     return (
       <form className='editCard' onSubmit={this.handlePatchCard}>
         <h2>Edit Card</h2>
-        <p>Original Word</p>
+        <label><p>Original Word</p>
         <input
           type='text'
           id='original'
           name='original'
+          required
           onChange={this.handleInput.bind(this)}
           placeholder={this.state.word.original}
-        ></input>
-        <p>Translation</p>
+        ></input></label>
+        <label><p>Translation</p>
         <input
           type='text'
           id='translation'
           name='translation'
+          required
           onChange={this.handleInput.bind(this)}
           placeholder={this.state.word.translation}
-        ></input>
+        ></input></label>
         <button type='submit'>Submit</button>
       </form>
     );

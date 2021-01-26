@@ -150,10 +150,10 @@ class Learning extends Component {
                 onChange={this.updateAnswer}
                 placeholder='enter your answer...'
               />
-            </label>
+            
             <button id='guessBtn' type='submit'>
               Submit
-            </button>
+            </button></label>
           </div>
           <h3 className='incorrect'> INCORRECT: {this.state.wordIncorrectCount}</h3>
           <h3 className='correct'> CORRECT: {this.state.wordCorrectCount} </h3>
