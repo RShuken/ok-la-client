@@ -114,7 +114,7 @@
 }
 
 @media (max-width: 600px) {
-  
+
   .inputBox {
     display: flex;
     flex-direction: row;
@@ -135,4 +135,5 @@
     text-align: center;
     padding: 10px;
   }
+  
 }
