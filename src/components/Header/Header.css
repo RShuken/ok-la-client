@@ -1,43 +1,71 @@
-
-header { 
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    background-color: lightblue;
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background: #64dfdf;
+  padding: 0px 5%;
 }
 
 header h1 {
-    margin-right: auto;
-    margin-left: 35px;
-    text-decoration: none;
-    
+  text-decoration: none;
 }
 
-header h1 a:link{
-    text-decoration: none;
+img {
+  width: 15px;
 }
 
-
-header nav a:link{
-text-decoration: none;
-margin-right: 15px;
+header a {
+  text-decoration: none;
 }
 
-.userInfo {
-    display: flex;
-    flex-direction: column;
-    width: 30%;
+nav a {
+  text-align: center;
+  text-decoration: none;
+  font-family: 'Lato', Helvetica, Arial, 'Times New Roman', Times, serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 22px;
+  color: #000000;
+  margin: 7px;
 }
 
-.userInfo h2 {
-    padding-bottom: 0px;
-    margin-bottom: 10px;
-    margin-top: 0px;
+.menuBtn button {
+  width: 44px;
+  height: 44px;
+}
+
+.logo {
+  font-family: 'Lato', Helvetica, Arial, 'Times New Roman', Times, serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 22px;
+  color: #000000;
+}
+
+.privateNav {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+}
+
+.privateNav h2 {
+  padding-bottom: 0px;
+  margin-bottom: 10px;
+  margin-top: 0px;
+}
+
+.menuBtn {
 }
 
 @media (max-width: 600px) {
-   header {
-       display: none; 
-   }
+  .menuBtn {
+  }
+
+  nav {
+    display: flex;
+    flex-direction: column;
+  }
 }

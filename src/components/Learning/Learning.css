@@ -1,8 +1,67 @@
 .translateWrapper {
   display: flex;
+  background: #252525;
+
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  height: 100vh;
+}
+
+.translate-prompt {
+  margin-top: 40px;
+  color: #64dfdf;
+  font-size: 24px;
+  line-height: 22px;
+  margin-right: 0px;
+}
+.inputBox {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-right: 0px;
+}
+
+.incorrect {
+  font-family: Lato;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 10px;
+  line-height: 22px;
+
+  color: #fc4747;
+  margin: 0;
+  padding: 0;
+}
+
+.correct {
+  font-family: Lato;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 10px;
+  line-height: 22px;
+
+  color: #77ff85;
+  margin: 0;
+  padding: 0;
+}
+.inputBox button {
+  width: 105px;
+  height: 48px;
+  border: none;
+  background: #6930c3;
+  border-radius: 4px;
+  margin-left: 8px;
+}
+.answerBox {
+  width: 320px;
+  height: 48px;
+
+  background: #ffffff;
+  border-radius: 4px;
+}
+.translateTitle {
+  margin-top: 87px;
+  margin-bottom: 0px;
 }
 
 .translateWordContainer {
@@ -12,10 +71,41 @@
   align-items: center;
 }
 
+.guessContainer {
+  margin-top: 60px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.guessContainer h2, .guessContainer p {
+  color: white;
+}
+
+.guessContainer button {
+  border: none;
+  margin-top: 12px;
+}
+
+.guessContainer input {
+  padding: 5px;
+  margin: 5px;
+}
+
+.guessContainer a:link {
+  text-decoration: none;
+}
+
+.translateWordContainer button {
+  border: none;
+  margin-top: 0px;
+}
 
 .translateWordContainer input {
-    padding: 5px;
-    margin: 5px;
+  padding: 5px;
+  margin: 5px;
 }
 
 .translateWordContainer a:link {

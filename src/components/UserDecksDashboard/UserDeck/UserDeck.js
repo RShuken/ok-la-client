@@ -98,18 +98,17 @@ class UserDeck extends Component {
             {/* need to be able to pass the language.id to the next page from clicking this component */}
             {this.state.isToggled === false ? (
               <a href={`/language-dashboard/${this.state.language.id}`}>
-                {this.state.language.name}
+                {this.state.language.name.toUpperCase()}
               </a>
             ) : (
               this.editTitleForm()
             )}
           </h3>
-          <p>Number of cards {this.state.language.numCards}</p>
-          <p>Score: {this.state.language.total_score}</p>
+          <p>Highest Score: {this.state.language.total_score}</p>
         </div>
         <div className='btnBox'>
-          <button onClick={this.handleDeleteDeck}>delete</button>
-          <button onClick={this.handleClickEditTitle}>edit title</button>
+          <button className='deleteBtn' onClick={this.handleDeleteDeck}>delete</button>
+          <button className='editBtn' onClick={this.handleClickEditTitle}>edit title</button>
         </div>
       </div>
     );

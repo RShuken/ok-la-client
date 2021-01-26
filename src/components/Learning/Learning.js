@@ -19,7 +19,6 @@ class Learning extends Component {
   componentDidMount = () => {
     this.fetchHead();
     this.fetchLanguage();
-    
   };
 
   fetchLanguage = () => {
@@ -92,7 +91,7 @@ class Learning extends Component {
   renderGuess = () => {
     if (this.state.guessData.isCorrect === true) {
       return (
-        <div className='translateWordContainer'>
+        <div className='guessContainer'>
           <h1>{this.state.nextWord}</h1>
           <h2>You translated the word correctly!</h2>
           <h2>
@@ -101,25 +100,17 @@ class Learning extends Component {
             {this.state.guessData.answer}
           </h2>
           <button>
-            <a href={`/learn/${this.props.match.params.id}`}>Try another word!</a>
+            <a href={`/learn/${this.props.match.params.id}`}>
+              Try another word!
+            </a>
           </button>
-          <p>Your total score is: {this.state.guessData.totalScore+1}</p>
-          <h3>
-            {' '}
-            You have answered this word correctly{' '}
-            {this.state.guessData.wordCorrectCount+1} times
-          </h3>
-          <h3>
-            {' '}
-            You have answered this word incorrectly{' '}
-            {this.state.guessData.wordIncorrectCount} times
-          </h3>
+          <p>Your total score is: {this.state.guessData.totalScore + 1}</p>
         </div>
       );
     }
     if (this.state.guessData.isCorrect === false) {
       return (
-        <div className='translateWordContainer'>
+        <div className='guessContainer'>
           <h1>{this.state.nextWord}</h1>
           <h2>You translated the word incorrectly...</h2>
           <h2>
@@ -128,21 +119,11 @@ class Learning extends Component {
             {this.state.guessData.answer}
           </h2>
           <button>
-            <a href={`/learn/${this.props.match.params.id}`}>Try another word!</a>
+            <a href={`/learn/${this.props.match.params.id}`}>
+              Try another word!
+            </a>
           </button>
           <p>Your total score is: {this.state.guessData.totalScore}</p>
-          <h3>
-            {' '}
-            You have answered this word correctly {
-              this.state.wordCorrectCount
-            }{' '}
-            times
-          </h3>
-          <h3>
-            {' '}
-            You have answered this word incorrectly{' '}
-            {this.state.wordIncorrectCount+1} times
-          </h3>
         </div>
       );
     }
@@ -156,35 +137,26 @@ class Learning extends Component {
           className='translateWordContainer'
           onSubmit={(e) => this.checkGuess(e)}
         >
-          <h1>Translate the word:</h1>
-          <h1>{this.state.nextWord}</h1>
-          <p>Your total score is: {this.state.totalScore}</p>
-          <label htmlFor='answer'>
-            <h2>What is the correct translation in English?</h2>
-          </label>
-          <input
-            type='text'
-            id='answer'
-            name='answer'
-            required
-            onChange={this.updateAnswer}
-            placeholder='Guess Here'
-          />
-          <button id='guessBtn' type='submit'>
-            Submit
-          </button>
-          <h3>
-            {' '}
-            You have answered this word correctly {
-              this.state.wordCorrectCount
-            }{' '}
-            times
-          </h3>
-          <h3>
-            {' '}
-            You have answered this word incorrectly{' '}
-            {this.state.wordIncorrectCount} times
-          </h3>
+          <h1 className='translateTitle'>Translate the Word</h1>
+          <h1 className='translate-prompt'>{this.state.nextWord}</h1>
+          <div className='inputBox'>
+            <label htmlFor='answer'>
+              <input
+                type='text'
+                id='answer'
+                name='answer'
+                className='answerBox'
+                required
+                onChange={this.updateAnswer}
+                placeholder='enter your answer...'
+              />
+            </label>
+            <button id='guessBtn' type='submit'>
+              Submit
+            </button>
+          </div>
+          <h3 className='incorrect'> INCORRECT: {this.state.wordIncorrectCount}</h3>
+          <h3 className='correct'> CORRECT: {this.state.wordCorrectCount} </h3>
         </form>
       </div>
     );
@@ -198,7 +170,6 @@ class Learning extends Component {
   };
 
   render() {
-    console.log('this is the state',this.state);
     return (
       <div className='translateWrapper'>
         <section>{this.chooseRender()}</section>
