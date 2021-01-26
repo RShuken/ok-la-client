@@ -66,7 +66,7 @@ class UserDeck extends Component {
         console.log(data);
         // issue happens here after adding a new name when clicking into the new deck it crashes.
         this.setState({
-          language: { name: data.name },
+          language: { ...this.state.language , name: data.name },
           isToggled: !this.state.isToggled,
         });
       })

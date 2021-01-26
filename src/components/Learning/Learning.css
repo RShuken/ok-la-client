@@ -112,3 +112,27 @@
 .translateWordContainer a:link {
   text-decoration: none;
 }
+
+@media (max-width: 600px) {
+  
+  .inputBox {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+  }
+
+  .inputBox input {
+    width: 80%;
+  }
+
+  .inputBox button {
+    margin: 10px;
+  }
+
+  .guessContainer {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 10px;
+  }
+}
