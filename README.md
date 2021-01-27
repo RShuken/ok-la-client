@@ -12,12 +12,12 @@ Users can add community language flashcard decks, create their own and share.
 
 # Demo Account
 
-Login with this user and password to test the app. 
+Login with this user and password to test the app.
 
-```Username: demotest```
-```Password: 1234Qwer!```
+`Username: demotest`
+`Password: 1234Qwer!`
 
-Create your own account and a default deck of `french` will be created for you. Add more decks in the community hub. On your dashboard page, create a new deck. You must add a minimum of 3 cards to start leaning with a deck. Make the deck public by clicking the checkbox to share it to the community. 
+Create your own account and a default deck of `french` will be created for you. Add more decks in the community hub. On your dashboard page, create a new deck. You must add a `minimum of 3` cards to start learning with a deck. Make the deck public by clicking the checkbox to share it to the community.
 
 ## Screenshots
 
@@ -50,13 +50,13 @@ PostgreSQL
 
 to install all scripts run:
 
-```npm install```
+`npm install`
 
 test are done in enzyme and jest
 
 to test run:
 
-``` npm test ```
+`npm test`
 
 ### Hosted on
 
