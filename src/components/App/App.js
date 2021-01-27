@@ -11,6 +11,7 @@ import NotFoundRoute from '../../routes/NotFoundRoute/NotFoundRoute';
 import CommunityDecksDashboard from '../CommunityDecksDashboard/CommunityDecksDashboard';
 import UserDecksDashboard from '../UserDecksDashboard/UserDecksDashboard';
 import MakeNewDeck from '../MakeNewDeck/MakeNewDeck';
+import LandingPage from '../LandingPage/LandingPage';
 import './App.css';
 
 export default class App extends Component {
@@ -52,6 +53,8 @@ export default class App extends Component {
               component={RegistrationRoute}
             />
             <PublicOnlyRoute exact path={'/login'} component={LoginRoute} />
+            <PublicOnlyRoute exact path={'/index'} component={LandingPage} />
+
             <Route component={NotFoundRoute} />
           </Switch>
         </main>
