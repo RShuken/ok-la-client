@@ -4,6 +4,8 @@ import TokenService from '../../services/token-service';
 import './MakeNewDeck.css';
 import { withRouter } from 'react-router';
 
+// this component creates a new deck and post to the server the title of the deck. The backend endpoint handles everything from there. 
+
 class CreateNewDeck extends Component {
   constructor(props) {
     super(props);

@@ -6,6 +6,7 @@ import Button from '../Button/Button';
 import './RegistrationForm.css';
 import UserContext from '../../contexts/UserContext';
 
+// this component handles the registration form
 
 class RegistrationForm extends Component {
   static defaultProps = {

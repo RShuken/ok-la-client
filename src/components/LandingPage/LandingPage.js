@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './LandingPage.css';
 
+// landing page component
+
 class LandingPage extends Component {
   constructor(props) {
     super(props);

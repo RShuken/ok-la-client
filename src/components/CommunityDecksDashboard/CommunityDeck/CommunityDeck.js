@@ -3,6 +3,7 @@ import config from '../../../config';
 import './CommunityDeck.css';
 import TokenService from '../../../services/token-service';
 
+// this component renders the individual card that represents a deck that user can add on the community deck page. The values are sent through props and the card is created here. This also takes care of adding a deck to a users library. That fetch request requires the language deck id to be passed as a property of the fetch path. The backend takes care of the rest since it already has the user ID when logged in. 
 
 class CommunityDecks extends Component {
   constructor(props) {

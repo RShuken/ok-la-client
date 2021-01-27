@@ -14,6 +14,8 @@ import MakeNewDeck from '../MakeNewDeck/MakeNewDeck';
 import LandingPage from '../LandingPage/LandingPage';
 import './App.css';
 
+// this component renders they switch and route for the react dom router. Components are called when a path exactly matches and helps the user traverse the app. 
+
 export default class App extends Component {
   state = { hasError: false };
 

@@ -5,6 +5,8 @@ import UserContext from '../../contexts/UserContext';
 import './Header.css';
 import icon from '../../images/menu_icon.png';
 
+// this component handles the header, nav menu and the hamburger menu. It listens to the width and height of the page window and changes how the hamburger menu loads when the width is less that 600px. It also handles the routing if a user is not logged in, or if they are
+
 class Header extends Component {
   constructor(props) {
     super(props);

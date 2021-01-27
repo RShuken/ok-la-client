@@ -9,6 +9,8 @@ import { faEdit } from '@fortawesome/free-solid-svg-icons';
 const elementTrash = <FontAwesomeIcon icon={faTrash} />;
 const elementEdit = <FontAwesomeIcon icon={faEdit} />;
 
+// this component handles the rendering of the user deck that is shown on the dashboard. It is passed props and rendered in it's parent component. 
+
 class UserDeck extends Component {
   constructor(props) {
     super(props);

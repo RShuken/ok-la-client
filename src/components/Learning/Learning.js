@@ -3,6 +3,8 @@ import config from '../../config';
 import TokenService from '../../services/token-service';
 import './Learning.css';
 
+// this component handles the flash card learning experience for a user. It renders a correct or incorrect response based on the response from the server after a user submits their guess. The response contains a true or false value that dynamically loads the correct response card and moves the data list in the server to the next word card in the linked list. 
+
 class Learning extends Component {
   constructor(props) {
     super(props);
@@ -40,6 +42,8 @@ class Learning extends Component {
       .catch((err) => console.log(err.message));
   };
 
+
+  // this fetch request gets the word that is at the head of the linked list.
   fetchHead = () => {
     const { API_ENDPOINT } = config;
     const fetchHeaders = {
@@ -70,6 +74,7 @@ class Learning extends Component {
     this.setState({ answer: e.target.value });
   };
 
+  // this fetch request does the heavy lifting of comparing if a users input was correct or false and returns an object with a true or false value that represents if the user guessed the flashcard word correctly.
   checkGuess = (e) => {
     e.preventDefault();
     const { API_ENDPOINT } = config;
@@ -87,6 +92,7 @@ class Learning extends Component {
       });
   };
 
+  // the result card is rendered based on if the previous fetch response returned true or false
   renderGuess = () => {
     if (this.state.guessData.isCorrect === true) {
       return (

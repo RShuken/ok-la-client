@@ -4,6 +4,7 @@ import './CommunityDecksDashboard.css';
 import CommunityDeck from './CommunityDeck/CommunityDeck'
 import TokenService from '../../services/token-service';
 
+// this component handles the community dashboard where all public decks are shown. The fetch call loads on mount and receives all PUBLIC decks. A deck card is rendered then mapped through to create the deck container. The child component Community Deck, renders the card that is mapped over. 
 
 class CommunityDecksDashboard extends Component {
   constructor(props) {

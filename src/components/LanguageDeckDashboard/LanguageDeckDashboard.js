@@ -5,7 +5,7 @@ import './LanguageDeckDashboard.css';
 import LanguageCard from './LanguageCard/LanguageCard';
 import { withRouter } from 'react-router';
 
-//Issue with the access value in state.
+//This component renders a language deck dashboard. On mount it fetches all words in a language and sets it in state to then be passed to the language card component that renders each word in a flashcard deck. 
 
 class LanguageDeckDashboard extends Component {
   constructor(props) {
@@ -59,7 +59,7 @@ class LanguageDeckDashboard extends Component {
     const access = !this.state.access
     this.handleUpdateAccess(access);
   };
-
+ // this handles the check box that makes a deck private or public to the community hub. 
   handleUpdateAccess = (access) => {
 
     const { API_ENDPOINT } = config;

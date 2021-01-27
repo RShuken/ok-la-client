@@ -5,6 +5,8 @@ import UserContext from '../../contexts/UserContext'
 import Button from '../Button/Button'
 import './LoginForm.css'
 
+// this component handles the login form. 
+
 class LoginForm extends Component {
   static defaultProps = {
     onLoginSuccess: () => { }

@@ -3,6 +3,8 @@ import config from '../../../config';
 import TokenService from '../../../services/token-service';
 import './LanguageCard.css';
 
+// this component renders an individual word card that is mapped over in it's parent component. 
+
 class LanguageCard extends Component {
   constructor(props) {
     super(props);
@@ -13,7 +15,7 @@ class LanguageCard extends Component {
       translation: '',
     };
   }
-
+ // this fetch request deletes a card based on the card ID. 
   handleDeleteCard = () => {
     const { API_ENDPOINT } = config;
     const fetchHeaders = {

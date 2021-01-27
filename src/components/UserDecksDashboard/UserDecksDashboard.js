@@ -4,6 +4,8 @@ import UserDeck from './UserDeck/UserDeck';
 import './UserDecksDashboard.css';
 import TokenService from '../../services/token-service';
 
+// this component handles the main view a user will see after they are logged in. It renders the decks that they currently have. The decks are mapped through in the user deck child component and props as passed through. The fetch request return arrays to do the mapping over. 
+
 class UserDecksDashboard extends Component {
   constructor(props) {
     super(props);
