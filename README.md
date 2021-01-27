@@ -14,7 +14,7 @@ Users can add community language flashcard decks, create their own and share.
 
 Login with this user and password to test the app.
 
-`Username: demotest`
+`Username: demo`
 `Password: 1234Qwer!`
 
 Create your own account and a default deck of `french` will be created for you. Add more decks in the community hub. On your dashboard page, create a new deck. You must add a `minimum of 3` cards to start learning with a deck. Make the deck public by clicking the checkbox to share it to the community.
