@@ -16,7 +16,6 @@ class CreateNewDeck extends Component {
   // this will be a POST request to create a whole new deck.
   addNewLanguage = (e) => {
     e.preventDefault();
-    console.log('the submit button has been clicked', this.state.title);
     const { API_ENDPOINT } = config;
     const fetchHeaders = {
       method: 'POST',

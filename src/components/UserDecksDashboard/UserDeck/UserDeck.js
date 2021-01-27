@@ -42,10 +42,6 @@ class UserDeck extends Component {
   // when clicking edit deck it will take the user to the dynamic path of the language deck based on the Id of the language.
   handleEditDeckTitle = (e) => {
     e.preventDefault();
-    console.log(
-      'the edit title has started and this is the new title',
-      this.state.name
-    );
     const { API_ENDPOINT } = config;
     const fetchHeaders = {
       method: 'PUT',
@@ -64,8 +60,6 @@ class UserDeck extends Component {
     )
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
-        // issue happens here after adding a new name when clicking into the new deck it crashes.
         this.setState({
           language: { ...this.state.language , name: data.name },
           isToggled: !this.state.isToggled,

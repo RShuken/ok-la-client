@@ -29,7 +29,6 @@ class UserDecksDashboard extends Component {
     fetch(`${API_ENDPOINT}/user`, fetchHeaders)
       .then((res) => res.json())
       .then((data) => {
-        console.log('this is the api/user response with languages for the user', data)
         this.setState({ languages: data });
       })
       .catch((err) => console.log(err.message));

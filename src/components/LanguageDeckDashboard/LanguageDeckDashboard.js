@@ -57,15 +57,10 @@ class LanguageDeckDashboard extends Component {
 
   handleCheckBoxChange = () => {
     const access = !this.state.access
-    console.log('after handleCheckBoxChange this is the value of access', access)
     this.handleUpdateAccess(access);
   };
 
   handleUpdateAccess = (access) => {
-        console.log(
-          'in the handleUpdateAccess function this is hte value of access',
-          access
-        );
 
     const { API_ENDPOINT } = config;
     const fetchHeaders = {
@@ -85,7 +80,6 @@ class LanguageDeckDashboard extends Component {
     )
       .then((res) => res.json())
       .then((data) => {
-        console.log(data)
         this.setState({access: access})
       })
       .catch((err) => console.log(err.message));
@@ -146,7 +140,6 @@ class LanguageDeckDashboard extends Component {
   };
 
   handleDeleteDeck = () => {
-    console.log('the delete deck button has been clicked');
     const { API_ENDPOINT } = config;
     const fetchHeaders = {
       method: 'DELETE',
@@ -169,15 +162,12 @@ class LanguageDeckDashboard extends Component {
   };
 
   onDelete = (id) => {
-    console.log('this is the id of the card being deleted', id);
     const wordsArray = this.state.words.filter((word) => word.id !== id);
-    console.log('this is the words array', wordsArray);
     this.setState({ words: wordsArray });
   };
 
   render() {
     const { words } = this.state;
-    console.log('this is access on load', this.state.access);
     return (
       <section className='wordCardsContainer'>
         <h1>{this.state.language.name}</h1>
