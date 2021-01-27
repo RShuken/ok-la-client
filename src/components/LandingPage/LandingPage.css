@@ -1,35 +1,48 @@
 .landingPageContainer {
-background-image: url('../../images/background.jpg');
-background-repeat: no-repeat;
-background-size: cover;
-background-position: center center;
-display: flex;
-flex-direction: column;
-align-items: center;
-height: 100vh; 
-
+  background-image: url('../../images/background.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
 }
 
 .landingPageMessageBox {
-width: 562px;
-height: auto;
-margin-top: 50px;
-background: rgba(0, 0, 0, 0.7);
-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  width: 562px;
+  height: auto;
+  margin-top: 50px;
+  background: rgba(0, 0, 0, 0.7);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-.landingPageMessageBox p{
-font-family: Lato;
-font-style: lighter;
-font-weight: 300;
-font-size: 16px;
-line-height: 22px;
-color: #FFFFFF;
-margin: 20px;
+.landingPageMessageBox p {
+  font-family: Lato;
+  font-style: lighter;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 22px;
+  color: #ffffff;
+  margin: 20px;
 }
 
 @media (max-width: 600px) {
-    .landingPageMessageBox {
+  .landingPageMessageBox {
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    height: auto;
+    margin: 0;
+  }
 
-    }
+  .landingPageMessageBox h1 {
+    line-height: 35px;
+    margin-bottom: 0;
+  }
+
+  .landingPageContainer {
+    background-size: cover;
+    background-repeat: repeat;
+  }
 }
