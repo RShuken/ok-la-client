@@ -54,6 +54,8 @@ to install all scripts run:
 
 test are done in enzyme and jest
 
+all test files are located inside each component that is tested
+
 to test run:
 
 `npm test`
