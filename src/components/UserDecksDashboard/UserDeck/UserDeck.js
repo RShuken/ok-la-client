@@ -16,6 +16,7 @@ class UserDeck extends Component {
       language: this.props.language,
       isToggled: false,
       name: '',
+      isTooLong: false
     };
   }
 
@@ -78,6 +79,12 @@ class UserDeck extends Component {
   };
 
   handleInput = (e) => {
+    if (e.target.value.length >= 9) {
+      this.setState({ isTooLong: true})
+    } else {
+            this.setState({ isTooLong: false });
+
+    }
     const inputs = { [e.target.name]: e.target.value };
     this.setState(inputs);
   };
@@ -86,7 +93,7 @@ class UserDeck extends Component {
     return (
       <form onSubmit={this.handleEditDeckTitle}>
         <input type='text' name='name' required id='name' placeholder='edit title' onChange={this.handleInput} />
-        <button type='submit'>Submit</button>
+        {this.state.isTooLong ? <p>You can only have 9 or less characters in this input</p> : <button type='submit'>Submit</button>}
       </form>
     );
   };
@@ -96,7 +103,7 @@ class UserDeck extends Component {
       <div className='userDeckWrapper'>
         {/* this icon button will take the user to the edit deck page */}
         <div className='languageBox'>
-          
+          <div>
             {/* need to be able to pass the language.id to the next page from clicking this component */}
             {this.state.isToggled === false ? (
               <a href={`/language-dashboard/${this.state.language.id}`}><h2>
@@ -105,7 +112,7 @@ class UserDeck extends Component {
             ) : (
               this.editTitleForm()
             )}
-          
+          </div>
           <p>Highest Score: {this.state.language.total_score}</p>
         </div>
         <div className='btnBox'>

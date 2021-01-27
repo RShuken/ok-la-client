@@ -27,7 +27,7 @@ class LandingPage extends Component {
             everyone.
           </p>
         </div>
-      </div>
+        </div>
     );
   }
 }

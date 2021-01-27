@@ -25,6 +25,11 @@
   text-decoration: none;
 }
 
+.addNewLanguageForm p {
+  color: white; 
+  margin: 10px; 
+}
+
 .addNewLanguageForm label {
  text-align: center;
 }

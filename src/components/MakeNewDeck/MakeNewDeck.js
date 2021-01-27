@@ -9,6 +9,7 @@ class CreateNewDeck extends Component {
     super(props);
     this.state = {
       title: '',
+      isTooLong: false
     };
   }
 
@@ -35,6 +36,12 @@ class CreateNewDeck extends Component {
   };
 
   handleInput = (e) => {
+    if (e.target.value.length >= 9) {
+      this.setState({ isTooLong: true})
+    } else {
+            this.setState({ isTooLong: false });
+
+    }
     const inputs = { [e.target.name]: e.target.value };
     this.setState(inputs);
   };
@@ -42,12 +49,22 @@ class CreateNewDeck extends Component {
 
   renderAddNewDeck = () => {
     return (
-      <form onSubmit={this.addNewLanguage} className="addNewLanguageForm">
+      <form onSubmit={this.addNewLanguage} className='addNewLanguageForm'>
         <h1>Title of Deck</h1>
         <label>
-        <input placeholder='new deck title' name='title' id='title' required onChange={this.handleInput} />
-        
-        <button type='submit'>Submit</button></label>
+          <input
+            placeholder='new deck title'
+            name='title'
+            id='title'
+            required
+            onChange={this.handleInput}
+          />
+          {this.state.isTooLong ? (
+            <p>You can only have 9 or less characters in this input</p>
+          ) : (
+            <button type='submit'>Submit</button>
+          )}
+        </label>
       </form>
     );
   };
