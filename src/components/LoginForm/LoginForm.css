@@ -17,6 +17,10 @@
   flex-direction: column;
 }
 
+.wrongInput p{
+  color: white;
+}
+
 .inputs label {
   margin: 5px 0;
 }
