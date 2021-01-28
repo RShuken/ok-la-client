@@ -29,9 +29,10 @@ class LandingPage extends Component {
             everyone.
           </p>
           <p> To test the page please use this demo account:</p>
-          <p>Username: demo Password: 1234Qwer!</p>
+          <p>Username: demo</p>
+          <p>Password: 1234Qwer!</p>
         </div>
-        </div>
+      </div>
     );
   }
 }
