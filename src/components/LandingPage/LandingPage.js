@@ -28,6 +28,8 @@ class LandingPage extends Component {
             add community decks or create your own decks and share them with
             everyone.
           </p>
+          <p> To test the page please use this demo account:</p>
+          <p>Username: demo Password: 1234Qwer!</p>
         </div>
         </div>
     );
