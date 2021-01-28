@@ -55,6 +55,7 @@ class CreateNewDeck extends Component {
         <label>
           <input
             placeholder='new deck title'
+            maxLength="9"
             name='title'
             id='title'
             required

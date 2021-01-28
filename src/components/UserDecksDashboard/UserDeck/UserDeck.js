@@ -88,7 +88,7 @@ class UserDeck extends Component {
   editTitleForm = () => {
     return (
       <form onSubmit={this.handleEditDeckTitle}>
-        <input type='text' name='name' required id='name' placeholder='edit title' onChange={this.handleInput} />
+        <input type='text' maxLength='9' name='name' required id='name' placeholder='edit title' onChange={this.handleInput} />
         {this.state.isTooLong ? <p>You can only have 9 or less characters in this input</p> : <button type='submit'>Submit</button>}
       </form>
     );
