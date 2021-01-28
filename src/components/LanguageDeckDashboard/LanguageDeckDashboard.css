@@ -59,6 +59,7 @@
 
 #errorAddMoreLanguage {
   color: red; 
+  text-decoration: underline;
 }
 
 .btnContainer {
