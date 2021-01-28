@@ -196,7 +196,7 @@ class LanguageDeckDashboard extends Component {
             {!this.state.isToggled ? 'Add Card' : 'Close Add Card'}
           </button>
           {this.state.words.length < 3 ? (
-            <p>Add more words to start learning</p>
+            <h2 id='errorAddMoreLanguage'>ADD A MINIMUM OF 3 WORDS TO THE DECK TO START LEARNING</h2>
           ) : (
             <button>
               <a href={`/learn/${this.state.language.id}`}>Start learning</a>
